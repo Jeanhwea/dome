@@ -9,5 +9,3 @@ logw() {
 loge() {
     echo -e "$(date +'%F %T :') ${CLRRED}$*${CLRRST}"
 }
-
-declare -x -f logi
