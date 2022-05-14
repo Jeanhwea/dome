@@ -1,1 +1,3 @@
-source const.sh
+source symbol.sh
+
+source const-path.sh
