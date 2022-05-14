@@ -1,4 +1,19 @@
 DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
-logi dome $DOME_VERSION
+
+dome_main() {
+    DOME_ARGS="$*"
+    DOME_COMMAND=${DOME_COMMAND:-"help"}
+    case "$DOME_COMMAND" in
+        * )
+            dome_default_run "$DOME_ARGS" ;;
+    esac
+}
+
+dome_default_run() {
+    logi "dome $DOME_VERSION"
+}
+
+shift
+dome_main "$*"
