@@ -1,0 +1,6 @@
+#+TITLE: Dome - My Personal Shell Scripts Collection
+#+AUTHOR: Jinghui Hu
+#+EMAIL: hujinghui@buaa.edu.cn
+#+DATE: <2022-05-14 Sat 22:44:30>
+
+* Introduction
