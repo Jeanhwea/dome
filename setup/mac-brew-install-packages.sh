@@ -59,7 +59,6 @@ DOME_BREW_PACKAGES=(
     "tmux"
     "tree"
     "unar"
-    "unrar"
     "wget"
     "yarn"
     "you-get"
@@ -74,7 +73,7 @@ dome_brew_install() {
     if [ X"$version" == X"" ]; then
         dome_exec brew install $pkg
     else
-        logi "Find $version"
+        logi "find $version"
     fi
 }
 
