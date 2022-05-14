@@ -1,11 +1,23 @@
 logi() {
-    echo -e "$(date +'%F %T :') ${CLRGRN}$*${CLRRST}"
+    if [ "$SHELL" == "/bin/bash" ]; then
+        echo -e "$(date +'%F %T:') ${CLRGRN}$*${CLRRST}"
+    else
+        echo "$(date +'%F %T:') ${CLRGRN}$*${CLRRST}"
+    fi
 }
 
 logw() {
-    echo -e "$(date +'%F %T :') ${CLRYLW}$*${CLRRST}"
+    if [ "$SHELL" == "/bin/bash" ]; then
+        echo -e "$(date +'%F %T:') ${CLRYLW}$*${CLRRST}"
+    else
+        echo "$(date +'%F %T:') ${CLRYLW}$*${CLRRST}"
+    fi
 }
 
 loge() {
-    echo -e "$(date +'%F %T :') ${CLRRED}$*${CLRRST}"
+    if [ "$SHELL" == "/bin/bash" ]; then
+        echo -e "$(date +'%F %T:') ${CLRRED}$*${CLRRST}"
+    else
+        echo "$(date +'%F %T:') ${CLRRED}$*${CLRRST}"
+    fi
 }
