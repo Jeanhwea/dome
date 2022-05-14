@@ -1,6 +1,11 @@
-#+TITLE: Dome - My Personal Shell Scripts Collection
+#+TITLE: Dome - My Personal Shell Script Collection
 #+AUTHOR: Jinghui Hu
 #+EMAIL: hujinghui@buaa.edu.cn
 #+DATE: <2022-05-14 Sat 22:44:30>
 
 * Introduction
+
+安装代码的命令
+#+BEGIN_SRC sh
+  git clone -o github git@github.com:Jeanhwea/dome.git
+#+END_SRC
