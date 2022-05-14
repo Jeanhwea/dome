@@ -77,10 +77,10 @@ dome_brew_install() {
     fi
 }
 
-dome_install_packages() {
+dome_install_brew_packages() {
     for pkg in "${DOME_BREW_PACKAGES[@]}"; do
         dome_brew_install $pkg
     done
 }
 
-dome_install_packages
+dome_install_brew_packages
