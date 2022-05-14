@@ -1,1 +1,1 @@
-ss
+DOME_BASE=
