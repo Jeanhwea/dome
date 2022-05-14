@@ -70,7 +70,7 @@ dome_brew_install() {
     local pkg=$*
     local version=$(brew ls --versions "$pkg")
 
-    if [ X"$version" == X"" ]; then
+    if [ X"$version" = X"" ]; then
         dome_exec brew install $pkg
     else
         logi "find $version"
