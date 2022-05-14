@@ -1,3 +1,4 @@
+# Terminal Colors
 CLRRED="\033[31m"
 CLRGRN="\033[32m"
 CLRYLW="\033[33m"
