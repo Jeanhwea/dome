@@ -1,23 +1,23 @@
+DOME_COLOR_ECHO="echo"
+
+if [ "$SHELL" == "/bin/bash" ]; then
+    DOME_COLOR_ECHO="echo -e"
+fi
+
 logi() {
-    if [ "$SHELL" == "/bin/bash" ]; then
-        echo -e "$(date +'%F %T:') ${CLRGRN}$*${CLRRST}"
-    else
-        echo "$(date +'%F %T:') ${CLRGRN}$*${CLRRST}"
-    fi
+    $DOME_COLOR_ECHO "$(date +'%F %T:') ${CLRGRN}$*${CLRRST}"
 }
 
 logw() {
-    if [ "$SHELL" == "/bin/bash" ]; then
-        echo -e "$(date +'%F %T:') ${CLRYLW}$*${CLRRST}"
-    else
-        echo "$(date +'%F %T:') ${CLRYLW}$*${CLRRST}"
-    fi
+    $DOME_COLOR_ECHO "$(date +'%F %T:') ${CLRYLW}$*${CLRRST}"
 }
 
 loge() {
-    if [ "$SHELL" == "/bin/bash" ]; then
-        echo -e "$(date +'%F %T:') ${CLRRED}$*${CLRRST}"
-    else
-        echo "$(date +'%F %T:') ${CLRRED}$*${CLRRST}"
-    fi
+    $DOME_COLOR_ECHO "$(date +'%F %T:') ${CLRRED}$*${CLRRST}"
+}
+
+dome_exec() {
+    local cmd=$*
+    $DOME_COLOR_ECHO "${CLRYLW}==> $cmd${CLRRST}"
+    $cmd
 }

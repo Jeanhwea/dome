@@ -4,7 +4,7 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 
 dome_brew_install() {
     local pkgs=$*
-    logi brew install $pkgs
+    dome_exec brew install $pkgs
 }
 
-dome_brew_install vlc hello
+dome_brew_install vlc 
