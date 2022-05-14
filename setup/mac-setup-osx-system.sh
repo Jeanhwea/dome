@@ -39,7 +39,7 @@ defaults write com.apple.finder ShowPathbar -bool true
 # Finder 更改文件名时不警告
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# 避免在网络卷上创建.DS_Store 文件
+# 避免在网络卷上创建 .DS_Store 文件
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 # 清空垃圾箱前不显示警告
