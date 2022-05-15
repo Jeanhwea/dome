@@ -21,7 +21,7 @@ test_match_github() {
 # test_match_github "https://github.com/go-vgo/robotgo.git"
 
 test_match_codebase() {
-    # echo "codebase"
+    echo "codebase"
 }
 
 
