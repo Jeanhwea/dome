@@ -11,6 +11,7 @@ DOME_BREW_PACKAGES=(
     "icoutils"
     "inetutils"
     "moreutils"
+    "alacritty"
     "aria2"
     "asciidoctor"
     "bash-completion"
