@@ -6,13 +6,13 @@ test_match_github() {
     local url=$1
 
     # match git@github.com:Jeanhwea/dome.git
-    local pattern1='^git@github.com:([_0-9a-zA-Z-]+)/([_0-9a-zA-Z-]+).git$'
+    local pattern1='^git@github.com:([a-zA-Z0-9_.-]+)/([a-zA-Z0-9_.-]+).git$'
     if [[ $url =~ $pattern1 ]]; then
         echo "github" ${BASH_REMATCH[1]} ${BASH_REMATCH[2]}
     fi
 
     # match https://github.com/go-vgo/robotgo.git
-    local pattern2='^https://github.com/([_0-9a-zA-Z-]+)/([_0-9a-zA-Z-]+).git$'
+    local pattern2='^https://github.com/([a-zA-Z0-9_.-]+)/([a-zA-Z0-9_.-]+).git$'
     if [[ $url =~ $pattern2 ]]; then
         echo "github" ${BASH_REMATCH[1]} ${BASH_REMATCH[2]}
     fi
