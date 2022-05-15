@@ -19,7 +19,7 @@ dome_main() {
 }
 
 dome_default_run() {
-    logi "dome $DOME_VERSION"
+    logi "Current dome version is $DOME_VERSION"
 }
 
 shift
