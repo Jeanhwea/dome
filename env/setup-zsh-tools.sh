@@ -1,6 +1,7 @@
 DOME_BASE=`cd $(dirname $(readlink -f $0)); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
+
 # zsh-autosuggestions.zsh
 DOME_ZA=/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 if [ -f $DOME_ZA ]; then
@@ -9,11 +10,13 @@ fi
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=yellow'
 
+
 # find gsed in macOS
 GSED_PATH="/usr/local/opt/gnu-sed/libexec/gnubin"
 if [ -d $GSED_PATH ]; then
     export PATH="${GSED_PATH}:$PATH"
 fi
+
 
 # change homebrew bottle domain
 # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
