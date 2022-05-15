@@ -26,3 +26,7 @@ shift
 dome_main "$*"
 
 logi Done
+
+# Local Variables:
+# mode: sh
+# End:
