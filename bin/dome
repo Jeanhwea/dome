@@ -6,6 +6,10 @@ dome_main() {
     DOME_ARGS="$*"
     DOME_COMMAND=${DOME_COMMAND:-"help"}
     case "$DOME_COMMAND" in
+        ma )
+            $DOME_BASE/script/git-upgrade-semantic-version.sh 3 ;;
+        mr )
+            $DOME_BASE/script/git-upgrade-semantic-version.sh 2 ;;
         * )
             dome_default_run "$DOME_ARGS" ;;
     esac

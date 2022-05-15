@@ -62,4 +62,4 @@ dome_upgrade_semantic_version() {
     dome_exec git push --tags
 }
 
-dome_upgrade_semantic_version
+dome_upgrade_semantic_version $*
