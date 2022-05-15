@@ -54,7 +54,7 @@ dome_upgrade_semantic_version() {
     fi
 
     # 进行升级工作
-    upgrade_dome_package_version
+    upgrade_dome_package_version $curr
 
     # 将版本同步到远端
     dome_exec git push
