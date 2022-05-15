@@ -7,6 +7,9 @@ DOME_ZA=/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=yellow'
 
+# find gsed in macOS
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
 # change homebrew bottle domain
 # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 
