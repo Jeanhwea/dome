@@ -20,14 +20,19 @@ test_match_github() {
 # test_match_github "git@github.com:Jeanhwea/dome.git"
 # test_match_github "https://github.com/go-vgo/robotgo.git"
 
+test_match_codebase() {
+    # echo "codebase"
+}
+
 
 clone_repository_to_local() {
     local url=$*
 
-    local fields=($(test_match_github $url))
     local remote="none"
     local repodir=
     local name=
+
+    local fields=($(test_match_github $url))
     if [ ${#fields[@]} -ge 3 ]; then
         remote=${fields[0]}
         name=${fields[2]}
@@ -35,6 +40,15 @@ clone_repository_to_local() {
             repodir="$DOME_CODE_DIR/jeanhwea"
         else
             repodir="$DOME_CODE_DIR/github/${fields[1]}"
+        fi
+    fi
+
+    if [ $remote = "none" ]; then
+        fields=($(test_match_codebase $url))
+        if [ ${#fields[@]} -ge 3 ]; then
+            remote=${fields[0]}
+            name=${fields[2]}
+            repodir="$DOME_WORK_DIR/${fields[1]}"
         fi
     fi
 
