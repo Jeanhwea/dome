@@ -15,7 +15,7 @@ upgrade_dome_package_version() {
     local file="$proj/common/symbol-meta.sh"
     local curr=$1
     if [ -f $file ]; then
-        sed -i 's/DOME_VERSION=*"/DOME_VERSION="'$curr'"/' $file
+        sed -i 's/DOME_VERSION=*/DOME_VERSION="'$curr'"/' $file
         dome_exec git add $file
         dome_exec git commit -m "$curr"
     fi
