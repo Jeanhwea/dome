@@ -21,6 +21,17 @@ upgrade_dome_package_version() {
     fi
 }
 
+upgrade_kitex_package_version() {
+    local proj=$(git rev-parse --show-toplevel)
+    local file="$proj/symbol/meta_info.go"
+    local curr=$1
+    if [ -f $file ]; then
+        sed -i 's/Version = "v.*"/Version = "'$curr'"/' $file
+        dome_exec git add $file
+        dome_exec git commit -m "$curr"
+    fi
+}
+
 dome_upgrade_semantic_version() {
     # 获取保留的版本数字的个数
     local count=3
@@ -55,6 +66,7 @@ dome_upgrade_semantic_version() {
 
     # 进行升级工作
     upgrade_dome_package_version $curr
+    upgrade_kitex_package_version $curr
 
     # 将版本同步到远端
     dome_exec git push
