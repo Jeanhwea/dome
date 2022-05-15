@@ -11,7 +11,6 @@ DOME_BREW_PACKAGES=(
     "icoutils"
     "inetutils"
     "moreutils"
-    "alacritty"
     "aria2"
     "asciidoctor"
     "bash-completion"
@@ -68,12 +67,32 @@ DOME_BREW_PACKAGES=(
     "zsh-autosuggestions"
 )
 
+DOME_CASK_PACKAGES=(
+    "alacritty"
+    "foxmail"
+    "macpass"
+    "mactex"
+    "visual-studio-code"
+)
+
 dome_install_brew_packages() {
     for pkg in "${DOME_BREW_PACKAGES[@]}"; do
         local version=$(brew ls --versions "$pkg")
 
         if [ X"$version" = X"" ]; then
             dome_exec brew install $pkg
+        else
+            logi "find $version"
+        fi
+    done
+}
+
+dome_install_cask_packages() {
+    for pkg in "${DOME_CASK_PACKAGES[@]}"; do
+        local version=$(brew ls --cask --versions "$pkg")
+
+        if [ X"$version" = X"" ]; then
+            dome_exec brew install --cask $pkg
         else
             logi "find $version"
         fi
