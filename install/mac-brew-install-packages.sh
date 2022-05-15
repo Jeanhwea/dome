@@ -100,3 +100,4 @@ dome_install_cask_packages() {
 }
 
 dome_install_brew_packages
+dome_install_cask_packages
