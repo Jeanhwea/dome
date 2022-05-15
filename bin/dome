@@ -22,3 +22,5 @@ dome_default_run() {
 
 shift
 dome_main "$*"
+
+logi Done
