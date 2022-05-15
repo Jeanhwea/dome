@@ -33,7 +33,7 @@ dome_upgrade_semantic_version() {
     local curr=$(bomup_version $last $count)
     logi "upgrade $last -> $curr"
 
-    # 检测当前 git 是否干净
+    # 检测当前 git 代码仓库是否干净
     if [ X"$(git status --porcelain)" != X"" ]; then
         dome_exec git status
     fi
