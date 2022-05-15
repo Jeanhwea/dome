@@ -10,4 +10,4 @@ export GO111MODULE=${GO111MODULE:=on}
 export GOPROXY=${GOPROXY:=https://goproxy.cn|direct}
 export CGO_ENABLED=1
 
-export PATH="$GOROOT/bin:$PATH"
+export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
