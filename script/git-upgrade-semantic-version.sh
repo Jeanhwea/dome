@@ -22,21 +22,36 @@ detect_and_upgrade_package_version() {
 }
 
 dome_upgrade_semantic_version() {
+    # 检测当前 git 是否干净
+    if [ X"$(git status --porcelain)" != X"" ]; then
+        dome_exec git status
+    fi
+
+    # 检测是否在 master 分支上
     local branch=$(git rev-parse --abbrev-ref HEAD)
     if [ "$branch" != "master" ]; then
         loge "Only support on master branch, but got $branch, ABORT!"
         exit 1
     fi
 
-    local last=$(get_last_version)
-    local head=$(git rev-parse HEAD)
-    local hash=$(git rev-parse $tag)
-
-    if [ "$hash" != "$head" ]; then
-        loge "Already tagged to $last, ABORT!"
-        exit 1
+    # 获取保留的版本数字的个数
+    local count=3
+    if [ $# -gt 0 ]; then
+        local count=$1
     fi
 
-    local curr=(bomup_version last 3)
-    logi "upgrade $"
+    # 获取升级的版本
+    local last=$(get_last_version)
+    local curr=$(bomup_version $last $count)
+    logi "Upgrade $last -> $curr"
+
+    # 检查 last 是否和 HEAD 相同, 避免重复打 tag
+    local head=$(git rev-parse HEAD)
+    local hash=$(git rev-parse $last)
+    if [ "$hash" = "$head" ]; then
+        loge "Already tagged to $curr, ABORT!"
+        exit 1
+    fi
 }
+
+dome_upgrade_semantic_version

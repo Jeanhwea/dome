@@ -33,10 +33,10 @@ bomup_version() {
     echo $ans
 }
 
-bomup_version "v1.2.3"
-bomup_version "v1.2.3" 0
-bomup_version "v1.2.3" 1
-bomup_version "v1.2.3" 2
-bomup_version "v1.2.3" 3
-bomup_version "v1.2.3" 4
-bomup_version "v1.2.3.4" 4
+# bomup_version "v1.2.3"
+# bomup_version "v1.2.3" 0
+# bomup_version "v1.2.3" 1
+# bomup_version "v1.2.3" 2
+# bomup_version "v1.2.3" 3
+# bomup_version "v1.2.3" 4
+# bomup_version "v1.2.3.4" 4
