@@ -11,13 +11,13 @@ get_last_version() {
 }
 
 detect_and_upgrade_package_version() {
-    local projroot=$(git rev-parse --show-toplevel)
-    local verfile="$projroot/common/symbol-meta.sh"
-    local currver=$1
-    if [ -f $verfile ]; then
-        sed -i 's/DOME_VERSION="v.*"/DOME_VERSION="'$currver'"/' $verfile
-        git add $verfile
-        git commit -m "$currver"
+    local proj=$(git rev-parse --show-toplevel)
+    local file="$proj/common/symbol-meta.sh"
+    local curr=$1
+    if [ -f $file ]; then
+        sed -i 's/DOME_VERSION="v.*"/DOME_VERSION="'$curr'"/' $file
+        dome_exec git add $file
+        dome_exec git commit -m "$curr"
     fi
 }
 
