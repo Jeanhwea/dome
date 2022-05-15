@@ -26,6 +26,7 @@ DOME_BREW_PACKAGES=(
     "git-open"
     "global"
     "gnu-sed"
+    "golang"
     "graphviz"
     "grip"
     "htop"
