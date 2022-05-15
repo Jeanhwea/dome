@@ -55,6 +55,8 @@ clone_repository_to_local() {
     if [ $remote != "none" ]; then
         logi "Clone to $repodir/$name"
         (mkdir -p $repodir && cd $repodir && git clone -o $remote $url)
+    else
+        logw "Unknown URL: $url"
     fi
 }
 
