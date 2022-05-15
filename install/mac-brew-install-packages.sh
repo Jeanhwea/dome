@@ -68,20 +68,15 @@ DOME_BREW_PACKAGES=(
     "zsh-autosuggestions"
 )
 
-dome_brew_install() {
-    local pkg=$*
-    local version=$(brew ls --versions "$pkg")
-
-    if [ X"$version" = X"" ]; then
-        dome_exec brew install $pkg
-    else
-        logi "find $version"
-    fi
-}
-
 dome_install_brew_packages() {
     for pkg in "${DOME_BREW_PACKAGES[@]}"; do
-        dome_brew_install $pkg
+        local version=$(brew ls --versions "$pkg")
+
+        if [ X"$version" = X"" ]; then
+            dome_exec brew install $pkg
+        else
+            logi "find $version"
+        fi
     done
 }
 
