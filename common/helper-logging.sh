@@ -18,6 +18,6 @@ loge() {
 
 dome_exec() {
     local cmd=$*
-    $DOME_COLOR_ECHO "${CLRYLW}==> $cmd${CLRRST}"
+    $DOME_COLOR_ECHO "==> ${CLRYLW}$cmd${CLRRST}"
     $cmd
 }
