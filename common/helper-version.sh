@@ -8,7 +8,11 @@ split_version() {
 
 bomup_version() {
     local verstr=$1
-    local leftCount=${2:=3}
+
+    local leftCount=3
+    if [ $# -gt 1 ]; then
+        local leftCount=$2
+    fi
 
     local vernums=$(split_version $verstr)
 
@@ -36,9 +40,9 @@ bomup_version() {
     echo $ansstr
 }
 
-
-bomup_version "v1.2.3" 0
-bomup_version "v1.2.3" 1
-bomup_version "v1.2.3" 2
-bomup_version "v1.2.3" 3
-bomup_version "v1.2.3" 4
+# bomup_version "v1.2.3"
+# bomup_version "v1.2.3" 0
+# bomup_version "v1.2.3" 1
+# bomup_version "v1.2.3" 2
+# bomup_version "v1.2.3" 3
+# bomup_version "v1.2.3" 4
