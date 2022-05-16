@@ -15,19 +15,27 @@ dome_main() {
             $DOME_BASE/script/git-upgrade-semantic-version.sh 1 ;;
         cl )
             $DOME_BASE/script/git-clone-repository-to-local.sh "$DOME_ARGS" ;;
+        ls )
+            $DOME_BASE/script/dome-list-sub-commands.sh "$DOME_ARGS" ;;
         * )
             dome_default_run "$DOME_ARGS" ;;
     esac
 }
 
 dome_default_run() {
-    logi "Current dome version is $DOME_VERSION"
+    DOME_ARGS="$*"
+    local script="$DOME_BASE/script/$DOME_COMMAND.sh"
+    if [ -f "$script" ]; then
+        dome_exec "$script $DOME_ARGS"
+    else
+        logw "fail to find $script, Dome $DOME_VERSION"
+    fi
 }
 
 shift
 dome_main "$*"
 
-logi Done
+# logi Done
 
 # Local Variables:
 # mode: sh
