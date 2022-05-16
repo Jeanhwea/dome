@@ -1,5 +1,3 @@
-DOME_COLOR_ECHO="echo"
-
 vcs_bomup_version() {
     local verstr=$1
 
