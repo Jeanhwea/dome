@@ -3,15 +3,15 @@ DOME_BASE=`cd $(dirname $(readlink -f $0)); cd ..; pwd`
 
 
 dome_create_subcmd_script() {
-    local cmd=$1
-    local file="$DOME_BASE/script/$cmd.sh"
+    local subcmd=${1/.sh/}
+    local file="$DOME_BASE/script/$subcmd.sh"
     if [ -f $file ]; then
         logw "file $file already exists"
     else
         cp $DOME_BASE/script/dome-create-sub-command-script.sh $file && \
-            sed -i "3,$d" $file
+            sed -i '3,$d' $file
         logi "create file $file"
     fi
 }
 
-dome_create_subcmd_script
+dome_create_subcmd_script $*
