@@ -10,7 +10,7 @@ dome_add_local_changes() {
 }
 
 dome_commit_with_timestamp() {
-    local timestamp=$(date +"timestamp: %Y-%m-%d %H:%M:%S)")
+    local timestamp=$(date +"timestamp: %Y-%m-%d %H:%M:%S")
     dome_exec git commit -m "'$timestamp'"
 }
 
