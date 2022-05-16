@@ -30,7 +30,7 @@ dome_default_run() {
     DOME_ARGS="$*"
     local script="$DOME_BASE/script/$DOME_COMMAND.sh"
     if [ -f "$script" ]; then
-        dome_exec "$script $DOME_ARGS"
+        $script $DOME_ARGS
     else
         logw "fail to find $script, Dome $DOME_VERSION"
     fi
