@@ -2,14 +2,6 @@ DOME_BASE=`cd $(dirname $(readlink -f $0)); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
 
-get_last_version() {
-    version=$(git tag -l 'v*' | sort -V -r | head -n 1)
-    if [ "$version" == "" ]; then
-        version="v0.0.0"
-    fi
-    echo $version
-}
-
 upgrade_dome_package_version() {
     local proj=$(git rev-parse --show-toplevel)
     local file="$proj/common/symbol-meta.sh"
@@ -40,7 +32,7 @@ dome_upgrade_semantic_version() {
     fi
 
     # 获取升级的版本
-    local last=$(get_last_version)
+    local last=$(vcs_last_version)
     local curr=$(vcs_bomup_version $last $count)
     logi "upgrade $last -> $curr"
 

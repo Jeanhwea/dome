@@ -49,6 +49,16 @@ vcs_current_remote() {
     git remote | head -n 1
 }
 
+vcs_last_version() {
+    verstr=$(git tag -l 'v*' | sort -V -r | head -n 1)
+    if [ "$verstr" == "" ]; then
+        verstr="v0.0.0"
+    fi
+    echo $verstr
+}
+
+# vcs_last_version
+
 vcs_repository_is_clean() {
     if [ X"$(git status --porcelain)" = X"" ]; then
         echo "clean"
