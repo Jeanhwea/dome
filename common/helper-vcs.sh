@@ -1,6 +1,6 @@
 DOME_COLOR_ECHO="echo"
 
-bomup_version() {
+vcs_bomup_version() {
     local verstr=$1
 
     local count=0
@@ -33,10 +33,28 @@ bomup_version() {
     echo $ans
 }
 
-# bomup_version "v1.2.3"
-# bomup_version "v1.2.3" 0
-# bomup_version "v1.2.3" 1
-# bomup_version "v1.2.3" 2
-# bomup_version "v1.2.3" 3
-# bomup_version "v1.2.3" 4
-# bomup_version "v1.2.3.4" 4
+# vcs_bomup_version "v1.2.3"
+# vcs_bomup_version "v1.2.3" 0
+# vcs_bomup_version "v1.2.3" 1
+# vcs_bomup_version "v1.2.3" 2
+# vcs_bomup_version "v1.2.3" 3
+# vcs_bomup_version "v1.2.3" 4
+# vcs_bomup_version "v1.2.3.4" 4
+
+vcs_current_branch() {
+    git branch --show-current
+}
+
+vcs_current_remote() {
+    git remote | head -n 1
+}
+
+vcs_repository_is_clean() {
+    if [ X"$(git status --porcelain)" = X"" ]; then
+        echo "clean"
+    else
+        echo "dirty"
+    fi
+}
+
+# vcs_repository_is_clean

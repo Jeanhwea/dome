@@ -41,11 +41,11 @@ dome_upgrade_semantic_version() {
 
     # 获取升级的版本
     local last=$(get_last_version)
-    local curr=$(bomup_version $last $count)
+    local curr=$(vcs_bomup_version $last $count)
     logi "upgrade $last -> $curr"
 
     # 检测当前 git 代码仓库是否干净
-    if [ X"$(git status --porcelain)" != X"" ]; then
+    if [ "$(vcs_repository_is_clean)" == "dirty" ]; then
         dome_exec git status
     fi
 
