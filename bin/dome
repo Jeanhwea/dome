@@ -17,6 +17,8 @@ dome_main() {
             $DOME_BASE/script/git-clone-repository-to-local.sh "$DOME_ARGS" ;;
         ls )
             $DOME_BASE/script/dome-list-sub-commands.sh "$DOME_ARGS" ;;
+        create )
+            $DOME_BASE/script/dome-create-sub-command-script.sh "$DOME_ARGS" ;;
         * )
             dome_default_run "$DOME_ARGS" ;;
     esac
