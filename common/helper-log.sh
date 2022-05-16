@@ -19,5 +19,5 @@ loge() {
 dome_exec() {
     local cmd=$*
     $DOME_COLOR_ECHO "==> ${CLRYLW}$cmd${CLRRST}"
-    $cmd
+    bash -c "$cmd"
 }
