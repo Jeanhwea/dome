@@ -19,6 +19,8 @@ dome_main() {
             $DOME_BASE/script/git-auto-add-and-commit-changes.sh "$DOME_ARGS" ;;
         ls )
             $DOME_BASE/script/dome-list-sub-commands.sh "$DOME_ARGS" ;;
+        rc|record )
+            $DOME_BASE/script/bot-record-mouse-clicks.sh "$DOME_ARGS" ;;
         create )
             $DOME_BASE/script/dome-create-sub-command-script.sh "$DOME_ARGS" ;;
         * )
