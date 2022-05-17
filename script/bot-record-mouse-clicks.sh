@@ -8,7 +8,7 @@ gotest_run_renyin_testcase() {
 
     local macro="mouse-click-record"
     if [ $# -ge 2 ]; then
-        local macro=$2
+        local macro=${2/.json/}
     fi
 
     cd $dir
