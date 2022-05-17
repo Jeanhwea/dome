@@ -3,11 +3,16 @@ DOME_BASE=`cd $(dirname $(readlink -f $0)); cd ..; pwd`
 
 
 gotest_run_renyin_testcase() {
-    local dir=$HOME/code/jeanhwea/renyin/run
+    local dir=$HOME/code/jeanhwea/renyin
     local testcase=$1
 
-    # gotest_run_testcase $dir $testcase 2>/dev/null | egrep -h "RecordMouseAction|SaveTextToFile"
-    gotest_run_testcase $dir $testcase
+    local macro="mouse-click-record"
+    if [ $# -ge 2 ]; then
+        local macro=$2
+    fi
+
+    cd $dir
+    dome_exec go test -v -count=1 -timeout=0 -run $testcase ./run -args "bot/${macro}.json"
 }
 
-gotest_run_renyin_testcase TestBotScripts01_RecordMouseAction
+gotest_run_renyin_testcase TestBotScripts01_RecordMouseAction $*
