@@ -5,8 +5,9 @@ DOME_BASE=`cd $(dirname $(readlink -f $0)); cd ..; pwd`
 dome_format_golans_source() {
     local files=$(find . -iname '*.go' -not -path "./*_gen/*")
     for file in ${files[@]}; do
-        dome_exec sed -i '/^import/,/^\s*)/ { /^\s*$/ d; }' $file
-        dome_exec goimports -w $file
+        logi "format $file"
+        dome_exec "sed -i '/^import/,/^\s*)/ { /^\s*$/ d; }' $file"
+        dome_exec "goimports -w $file"
     done
 }
 

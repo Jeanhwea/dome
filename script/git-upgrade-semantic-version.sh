@@ -52,7 +52,7 @@ dome_upgrade_semantic_version() {
     local head=$(git rev-parse HEAD)
     local hash=$(git rev-parse $last)
     if [ "$hash" = "$head" ]; then
-        loge "Already tagged to $curr, ABORT!"
+        loge "Current HEAD has already tagged, ABORT!"
         exit 1
     fi
 
