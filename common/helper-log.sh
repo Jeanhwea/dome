@@ -24,9 +24,9 @@ dome_exec() {
 
 dome_exec_local() {
     local file=$1
-    if [ -f $file ]; then
-        dome_exec $*
+    if [ ! -f $file ]; then
+        exit 2
     fi
 
-    exit 2
+    bash -c "$*"
 }
