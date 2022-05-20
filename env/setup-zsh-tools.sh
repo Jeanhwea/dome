@@ -10,6 +10,11 @@ fi
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=yellow'
 
+# z
+DOME_Z=/usr/local/etc/profile.d/z.sh
+if [ -f $DOME_Z ]; then
+    source $DOME_Z
+fi
 
 # find gsed in macOS
 GSED_PATH="/usr/local/opt/gnu-sed/libexec/gnubin"
