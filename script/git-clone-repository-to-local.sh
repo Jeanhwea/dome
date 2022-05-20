@@ -21,6 +21,10 @@ test_match_github() {
 # test_match_github "https://github.com/go-vgo/robotgo.git"
 
 test_match_codebase() {
+    if [ -f "$HOME/code/bytedance/privates/test-match-codebase.sh" ]; then
+        echo $*
+        exit 0
+    fi
     echo "codebase"
 }
 
