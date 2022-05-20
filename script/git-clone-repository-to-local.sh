@@ -21,14 +21,12 @@ test_match_github() {
 # test_match_github "https://github.com/go-vgo/robotgo.git"
 
 test_match_codebase() {
-    local cb="$HOME/bin/local/test-match-codebase.sh"
-    if [ -f $cb ]; then
-        dome_exec "$cb $*"
-        exit 0
+    local file=$*
+    dome_exec_local $HOME/bin/local/test-match-codebase.sh $file
+    if [ "$?" -eq 0 ]; then
+        echo "codebase"
     fi
-    echo "codebase"
 }
-
 
 clone_repository_to_local() {
     local url=$*

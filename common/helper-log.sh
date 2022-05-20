@@ -21,3 +21,12 @@ dome_exec() {
     $DOME_COLOR_ECHO "=> ${CLRYLW}$cmd${CLRRST}"
     bash -c "$cmd"
 }
+
+dome_exec_local() {
+    local file=$1
+    if [ -f $file ]; then
+        dome_exec $*
+    fi
+
+    exit 2
+}
