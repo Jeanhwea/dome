@@ -23,7 +23,7 @@ test_match_github() {
 test_match_codebase() {
     local cb="$HOME/bin/local/test-match-codebase.sh"
     if [ -f $cb ]; then
-        $cb $*
+        dome_exec "$cb $*"
         exit 0
     fi
     echo "codebase"
