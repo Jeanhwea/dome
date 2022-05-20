@@ -34,3 +34,8 @@ fi
 # export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass
 # export SELENIUM_CDNURL=http://npm.taobao.org/mirrorss/selenium
 # export SQLITE3_BINARY_SITE=http://npm.taobao.org/mirrors/sqlite3
+
+DOME_HOME_BIN=$HOME/bin
+if [ -d $DOME_HOME_BIN ]; then
+    export PATH=$DOME_HOME_BIN:$PATH
+fi
