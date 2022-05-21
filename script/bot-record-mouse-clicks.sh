@@ -12,7 +12,7 @@ gotest_run_renyin_testcase() {
     fi
 
     cd $dir
-    dome_exec go test -v -count=1 -timeout=0 -run $testcase ./run -args "bot/${macro}.json"
+    dome_exec CGO_ENABLED=1 go test -v -count=1 -timeout=0 -run $testcase ./run -args "bot/${macro}.json"
 }
 
 gotest_run_renyin_testcase TestBotScripts01_RecordMouseAction $*

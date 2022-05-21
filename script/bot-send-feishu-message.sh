@@ -11,7 +11,7 @@ gotest_run_renyin_testcase() {
     fi
 
     cd $dir
-    dome_exec go test -v -count=1 -timeout=0 -run $testcase ./run -args "${name}.csv"
+    dome_exec CGO_ENABLED=1 go test -v -count=1 -timeout=0 -run $testcase ./run -args "${name}.csv"
 }
 
 gotest_run_renyin_testcase TestFeishuScripts01_SendMessage $*
