@@ -33,12 +33,12 @@ clone_repository_to_local() {
 
     local remote="none"
     local repodir=
-    local name=
+    local reponame=
 
     local fields=($(test_match_github $url))
     if [ ${#fields[@]} -ge 3 ]; then
         remote=${fields[0]}
-        name=${fields[2]}
+        reponame=${fields[2]}
         if [ ${fields[1]} == "Jeanhwea" ]; then
             repodir="$DOME_CODE_DIR/jeanhwea"
         else
@@ -50,13 +50,13 @@ clone_repository_to_local() {
         fields=($(test_match_codebase $url))
         if [ ${#fields[@]} -ge 3 ]; then
             remote=${fields[0]}
-            name=${fields[2]}
+            reponame=${fields[2]}
             repodir="$DOME_WORK_DIR/${fields[1]}"
         fi
     fi
 
     if [ $remote != "none" ]; then
-        logi "Clone to $repodir/$name"
+        logi "Clone to $repodir/$reponame"
         (mkdir -p $repodir && cd $repodir && git clone -o $remote $url)
     else
         logw "Unknown URL: $url"
