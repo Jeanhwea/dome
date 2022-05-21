@@ -2,17 +2,48 @@ DOME_BASE=`cd $(dirname $(readlink -f $0)); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
 PRIVATE_USER=${PRIVATE_USER:="root"}
-PRIVATE_HOST=${PRIVATE_HOST:="localhost"}
+PRIVATE_HOST=${PRIVATE_HOST:="private.host"}
 PRIVATE_PORT=${PRIVATE_PORT:="22"}
 
-make_private_url() {
+get_remote_basedir() {
+    ssh -p ${PRIVATE_PORT} ${PRIVATE_USER}@${PRIVATE_HOST} 'echo "$HOME/repo"'
+}
+
+build_private_url() {
     local repodir=$1
     local reponame=$2
-    local url="ssh://${PRIVATE_HOST}:${PRIVATE_PORT}/${repodir}/${reponame}.git"
+    local url="ssh://${PRIVATE_USER}@${PRIVATE_HOST}:${PRIVATE_PORT}${repodir}/${reponame}.git"
+    echo $url
 }
 
-get_remote_repodir() {
-    echo ssh ${PRIVATE_USER}@${PRIVATE_HOST}:${PRIVATE_PORT} echo '$HOME'
+make_private_url() {
+    local basedir=$(get_remote_basedir)
+    local repodir="${basedir}/$1"
+    local reponame=$2
+    build_private_url $repodir $reponame
 }
 
-get_remote_repodir
+setup_remote_repo() {
+    local basedir=$(get_remote_basedir)
+    local repodir="$1"
+    local reponame="$2"
+    local repo="${basedir}/${repodir}/${reponame}.git"
+    dome_exec ssh -p ${PRIVATE_PORT} ${PRIVATE_USER}@${PRIVATE_HOST} "\"mkdir -p $repo && git -C $repo init --bare\""
+
+    local url=$(make_private_url $repodir $reponame)
+    logi "git add remote private $url"
+}
+
+init_remote_private_repo() {
+    local repodir="jeanhwea"
+    local reponame=$1
+
+    if [ $# -gt 2 ]; then
+        local repodir=$1
+        local reponame=$2
+    fi
+
+    setup_remote_repo $repodir $reponame
+}
+
+init_remote_private_repo $*
