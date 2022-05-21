@@ -36,7 +36,7 @@ setup_remote_repo() {
 
     local url=$(make_private_url $repodir $reponame)
     logi "git clone -o private $url"
-    logi "git add remote private $url"
+    logi "git remote add private $url"
 }
 
 init_remote_private_repo() {
