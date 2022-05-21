@@ -7,6 +7,7 @@ DOME_GOLANG_PACKAGES=(
     "github.com/mdempsky/gocode"
     "github.com/minodisk/thriftfmt"
     "github.com/rogpeppe/godef"
+    "github.com/swaggo/swag/cmd/swag"
     "golang.org/x/tools/cmd/godoc"
     "golang.org/x/tools/cmd/goimports"
     "golang.org/x/tools/gopls"
