@@ -29,6 +29,10 @@ setup_remote_repo() {
     local reponame="$2"
     local repo="${basedir}/${repodir}/${reponame}.git"
     dome_exec ssh -p ${PRIVATE_PORT} ${PRIVATE_USER}@${PRIVATE_HOST} "\"mkdir -p $repo && git -C $repo init --bare\""
+    if [ $? -ne 0 ]; then
+        loge "Failed init repository $repo"
+        exit 1
+    fi
 
     local url=$(make_private_url $repodir $reponame)
     logi "git add remote private $url"
@@ -38,7 +42,7 @@ init_remote_private_repo() {
     local repodir="jeanhwea"
     local reponame=$1
 
-    if [ $# -gt 2 ]; then
+    if [ $# -gt 1 ]; then
         local repodir=$1
         local reponame=$2
     fi
