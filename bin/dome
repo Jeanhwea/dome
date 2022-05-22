@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 DOME_BASE=`cd $(dirname $(readlink -f $0)); cd ..; pwd`
 DOME_COMMAND=$1
 . $DOME_BASE/common/common.sh
