@@ -66,3 +66,6 @@ defaults write com.apple.dock launchanim -bool false
 defaults write com.apple.dock show-recents -bool false
 
 killall Dock
+
+# 关闭 Spotlight 构建索引文件
+sudo mdutil -a -i off
