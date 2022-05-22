@@ -13,5 +13,5 @@ if [ "X$SHELL" = "X/bin/bash" ]; then
     CLRYLW=""
     CLRBLU=""
     CLRMGA=""
-    CLRRST="
+    CLRRST=""
 fi
