@@ -39,3 +39,8 @@ DOME_HOME_BIN=$HOME/bin
 if [ -d $DOME_HOME_BIN ]; then
     export PATH=$DOME_HOME_BIN:$PATH
 fi
+
+DOME_BREW_MOREUTILS_BIN=/usr/local/opt/coreutils/libexec/gnubin
+if [ -d $DOME_BREW_MOREUTILS_BIN ]; then
+    export PATH=$DOME_BREW_MOREUTILS_BIN:$PATH
+fi
