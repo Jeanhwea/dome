@@ -7,7 +7,7 @@ dwim_print_date_str() {
         return
     fi
 
-    local str=${*/T/}
+    local str=${*/T/ }
 
     local pattern1='^[0-9]+$'
     local pattern2='^[0-9]{4}-[0-9]{2}-[0-9]{2}( [0-9]{2}:[0-9]{2}:[0-9]{2}){0,1}$'
