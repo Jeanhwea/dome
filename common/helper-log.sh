@@ -1,6 +1,6 @@
 DOME_COLOR_ECHO="echo"
 
-if [ "X$SHELL" = "X/bin/bash" ]; then
+if [ X"$DOME_COLOR" = X"yes" ]; then
     DOME_COLOR_ECHO="echo -e"
 fi
 
