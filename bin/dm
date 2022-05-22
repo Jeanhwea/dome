@@ -1,2 +1,1 @@
-dome $*
-DOME_COLOR=${DOME_COLOR:="yes"}
+DOME_COLOR=${DOME_COLOR:="yes"} dome $*
