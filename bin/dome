@@ -27,6 +27,8 @@ dome_main() {
             $DOME_BASE/script/bot-send-feishu-message.sh "$DOME_ARGS" ;;
         create )
             $DOME_BASE/script/dome-create-sub-command-script.sh "$DOME_ARGS" ;;
+        date )
+            $DOME_BASE/script/dwim-to-date-string.sh "$DOME_ARGS" ;;
         * )
             dome_default_run "$DOME_ARGS" ;;
     esac
