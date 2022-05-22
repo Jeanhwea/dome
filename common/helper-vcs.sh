@@ -49,7 +49,7 @@ vcs_current_remote() {
 
 vcs_last_version() {
     verstr=$(git tag -l 'v*' | sort -V -r | head -n 1)
-    if [ "$verstr" == "" ]; then
+    if [ X"$verstr" = X"" ]; then
         verstr="v0.0.0"
     fi
     echo $verstr

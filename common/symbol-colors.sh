@@ -6,7 +6,7 @@ CLRBLU=""
 CLRMGA=""
 CLRRST=""
 
-if [ "$DOME_COLOR" == "yes" ]; then
+if [ X"$DOME_COLOR" = X"yes" ]; then
     CLRRED="\033[31m"
     CLRGRN="\033[32m"
     CLRYLW="\033[33m"

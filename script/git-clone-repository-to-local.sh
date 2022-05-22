@@ -39,14 +39,14 @@ clone_repository_to_local() {
     if [ ${#fields[@]} -ge 3 ]; then
         remote=${fields[0]}
         reponame=${fields[2]}
-        if [ ${fields[1]} == "Jeanhwea" ]; then
+        if [ X"${fields[1]}" = X"Jeanhwea" ]; then
             repodir="$DOME_CODE_DIR/jeanhwea"
         else
             repodir="$DOME_CODE_DIR/github/${fields[1]}"
         fi
     fi
 
-    if [ $remote = "none" ]; then
+    if [ X"$remote" = X"none" ]; then
         fields=($(test_match_codebase $url))
         if [ ${#fields[@]} -ge 3 ]; then
             remote=${fields[0]}
@@ -55,7 +55,7 @@ clone_repository_to_local() {
         fi
     fi
 
-    if [ $remote != "none" ]; then
+    if [ X"$remote" != X"none" ]; then
         logi "Clone to $repodir/$reponame"
         (mkdir -p $repodir && cd $repodir && git clone -o $remote $url)
     else

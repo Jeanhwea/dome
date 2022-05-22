@@ -37,13 +37,13 @@ dome_upgrade_semantic_version() {
     logi "upgrade $last -> $curr"
 
     # 检测当前 git 代码仓库是否干净
-    if [ "$(vcs_repository_is_clean)" == "dirty" ]; then
+    if [ X"$(vcs_repository_is_clean)" = X"dirty" ]; then
         dome_exec git status
     fi
 
     # 检测是否在 master 分支上
     local branch=$(git rev-parse --abbrev-ref HEAD)
-    if [ "$branch" != "master" ]; then
+    if [ X"$branch" != X"master" ]; then
         loge "Only support on master branch, but got $branch, ABORT!"
         exit 1
     fi
@@ -51,7 +51,7 @@ dome_upgrade_semantic_version() {
     # 检查 last 是否和 HEAD 相同, 避免重复打 tag
     local head=$(git rev-parse HEAD)
     local hash=$(git rev-parse $last)
-    if [ "$hash" = "$head" ]; then
+    if [ X"$hash" = X"$head" ]; then
         loge "Current HEAD has already tagged, ABORT!"
         exit 1
     fi

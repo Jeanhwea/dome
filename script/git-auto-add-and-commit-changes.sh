@@ -2,7 +2,7 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
 dome_add_local_changes() {
-    if [ "$(vcs_repository_is_clean)" == "dirty" ]; then
+    if [ X"$(vcs_repository_is_clean)" = X"dirty" ]; then
         dome_exec git status
     fi
 
