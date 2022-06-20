@@ -17,6 +17,7 @@ DOME_BREW_PACKAGES=(
     "ccat"
     "cheat"
     "cloc"
+    "csvq"
     "editorconfig"
     "elm"
     "ffmpeg"
