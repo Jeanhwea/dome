@@ -5,3 +5,5 @@ alias e='emacs -nw'
 alias em='emacsclient --no-wait'
 alias cbc='dome cl'
 alias dt='dm date'
+
+alias fmt='make format'
