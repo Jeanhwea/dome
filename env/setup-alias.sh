@@ -7,4 +7,5 @@ alias cbc='dome cl'
 alias dt='dm date'
 
 alias fmt='make format'
+alias gen='make generate'
 alias m='make'
