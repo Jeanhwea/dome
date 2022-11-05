@@ -44,6 +44,7 @@ DOME_BREW_PACKAGES=(
     "p7zip"
     "pandoc"
     "pgformatter"
+    "pngpaste"
     "protobuf"
     "pv"
     "python"
