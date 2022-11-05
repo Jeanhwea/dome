@@ -14,7 +14,7 @@ save_image_from_clipboard() {
 
     pngpaste $file
 
-    echo "[[file:$shim/$name]]" | pbcopy
+    echo "[[file:../$shim/$name]]" | pbcopy
 }
 
 save_image_from_clipboard $*
