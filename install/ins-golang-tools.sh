@@ -11,6 +11,7 @@ DOME_GOLANG_PACKAGES=(
     "golang.org/x/tools/cmd/godoc"
     "golang.org/x/tools/cmd/goimports"
     "golang.org/x/tools/gopls"
+    "gorm.io/gen/tools/gentool"
 )
 
 dome_install_golang_package() {
