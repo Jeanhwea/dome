@@ -1,0 +1,85 @@
+[user]
+  name = Jinghui Hu
+  email = hujinghui.jeffrey@bytedance.com
+
+[push]
+  default = simple
+
+[pull]
+  rebase = false
+
+[core]
+  excludesfile = ~/.gitignore_global
+
+[diff]
+  algorithm = patience
+
+[alias]
+  # porcelain commands abbreviations
+  c = commit
+  d = diff
+  s = status -s
+  b = branch
+  cm = commit
+  bl = blame
+  cl = clone
+  co = checkout
+  st = status
+
+  m = merge
+  mf = merge --ff
+  mn = merge --no-ff
+
+  # undo
+  amend = commit --amend
+  unstage = reset HEAD --
+
+  # useful logger
+  l   = log --graph --date=relative --decorate -n 9999
+  ll  = log --graph --date=relative --decorate --all -n 9999
+  lo  = log --graph --oneline --decorate -n 9999
+  lol = log --graph --oneline --decorate --all -n 9999
+  lg  = log --date=relative -n 9999
+
+  # remote diff
+  dfr = "!f() { git diff origin/$1 ^$1; }; f"
+  dfl = "!f() { git diff $1 ^origin/$1; }; f"
+
+  # list remotes
+  rem = "!git config -l | grep remote.*url | tail -n +2"
+
+  # plumbing command abbreviations
+  print = cat-file -p
+  sha = "!f() { find .git/objects -type f | grep -v pack | cut -b 14-15,17-; }; f"
+  create-hash = hash-object -w
+
+  # local hidden file management
+  assume = update-index --assume-unchanged
+  noassume = update-index --no-assume-unchanged
+  lh = "!git ls-files -v | grep '^h'"
+
+  # list-ignored files
+  li = ls-files --exclude-standard --ignored --others
+
+  # gitignore pattern
+  ig = "!f() { curl -sL https://www.gitignore.io/api/$@ ;}; f"
+  igs = "!f() { curl -sL https://www.gitignore.io/api/list ;}; f"
+
+  # github and gitlab remote repository management
+  remote-hub   = "!f() { git remote add github git@github.com:Jeanhwea/${PWD##*/}.git; }; f"
+  clone-hub    = "!f() { git clone -o github git@github.com:Jeanhwea/$@.git; }; f"
+  remote-avic  = "!f() { git remote add avic ssh://git@192.168.0.202:2222/hujinghui/${PWD##*/}.git; }; f"
+  clone-avic   = "!f() { git clone -o avic ssh://git@192.168.0.202:2222/hujinghui/$@.git; }; f"
+  remote-minix = "!f() { git remote add minix ssh://git@minix.jeanhwea.io:2222/$@/${PWD##*/}.git; }; f"
+  clone-minix  = "!f() { git clone -o minix ssh://git@minix.jeanhwea.io:2222/hujinghui/$@.git; }; f"
+  remote-dev58 = "!f() { git remote add dev58 ssh://git@mtiisl.cn:2222/hujinghui/${PWD##*/}.git; }; f"
+  clone-dev58  = "!f() { git clone -o dev58 ssh://git@mtiisl.cn:2222/hujinghui/$@.git; }; f"
+
+  # pull and push
+  sync = "!f() { for R in `git remote`; do git pull --tags $R master && git push $R --all && git push $R --tags; done; }; f"
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
