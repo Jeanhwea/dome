@@ -5,6 +5,10 @@ dome_get_remote_name() {
     git remote
 }
 
+dome_sync_remote_branch() {
+    git fetch --prune
+}
+
 dome_delete_local_merged_branch() {
     if [ X"$(vcs_repository_is_clean)" = X"dirty" ]; then
         dome_exec git status
@@ -31,5 +35,6 @@ dome_delete_remote_merged_branch() {
     done
 }
 
+dome_sync_remote_branch
 dome_delete_local_merged_branch
 dome_delete_remote_merged_branch
