@@ -6,7 +6,8 @@ dome_get_remote_name() {
 }
 
 dome_sync_remote_branch() {
-    git fetch --prune
+    local origin=$(dome_get_remote_name)
+    git fetch $origin --prune
 }
 
 dome_delete_local_merged_branch() {
