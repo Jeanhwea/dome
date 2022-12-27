@@ -2,7 +2,7 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
 
-dome_format_golans_source() {
+dome_format_golang_source() {
     local files=$(find . -iname '*.go' -not -path "./*_gen/*" -and -not -path './model/base/*.go' -and -not -path '*_gen.go')
     for file in ${files[@]}; do
         logi "format $file"
@@ -11,4 +11,4 @@ dome_format_golans_source() {
     done
 }
 
-dome_format_golans_source $*
+dome_format_golang_source $*
