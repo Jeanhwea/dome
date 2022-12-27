@@ -34,7 +34,7 @@ def parse_table(line):
     global table_name
     if table_name != '':
         return
-    match = re.match(r"^CREATE TABLE `(?P<table>\w+)`.*$", line, re.I)
+    match = re.match(r"^.*CREATE TABLE `(?P<table>\w+)`.*$", line, re.I)
     if match:
         table_name = match.group("table")
 
@@ -43,7 +43,7 @@ def parse_table_comment(line):
     global table_comment
     if table_comment != '':
         return
-    match = re.match(r"^.*COMMENT='(?P<comment>.+)'.*$", line, re.I)
+    match = re.match(r"^.*COMMENT *= *'(?P<comment>.+)'.*$", line, re.I)
     if match:
         table_comment = match.group("comment")
 
