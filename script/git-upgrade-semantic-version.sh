@@ -18,7 +18,7 @@ upgrade_kitex_package_version() {
     local file="$proj/symbol/meta_info.go"
     local curr=$1
     if [ -f $file ]; then
-        sed -i 's/Version = "v.*"/Version = "'$curr'"/' $file
+        sed -i -E 's/(Version += +")v.*(")/\1'$curr'\2/' $file
         dome_exec git add $file
         dome_exec git commit -m "$curr"
     fi

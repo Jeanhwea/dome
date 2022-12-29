@@ -4,8 +4,10 @@
 #+DATE: <2022-05-14 Sat 22:44:30>
 
 * Introduction
-
-安装代码的命令
+1. clone and add bin folder to your ~$PATH~
 #+BEGIN_SRC sh
   git clone -o github git@github.com:Jeanhwea/dome.git
 #+END_SRC
+
+* Link
+1. [[https://quickref.me/][QuickRef]]

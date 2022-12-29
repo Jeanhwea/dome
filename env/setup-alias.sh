@@ -18,3 +18,5 @@ alias t='make test'
 
 # Tmux
 alias ta='dm tmux-create-or-attach-server'
+alias td='tmux detach'
+# alias box="ssh username@host -t 'tmux attach'"
