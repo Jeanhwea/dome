@@ -2,6 +2,7 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
 DOME_GOLANG_PACKAGES=(
+    "github.com/cloudwego/thriftgo"
     "github.com/fatih/gomodifytags"
     "github.com/go-delve/delve/cmd/dlv"
     "github.com/mdempsky/gocode"
