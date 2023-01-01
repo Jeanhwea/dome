@@ -19,6 +19,8 @@ dome_main() {
             $DOME_BASE/script/git-clone-repository-to-local.sh "$DOME_ARGS" ;;
         cm )
             $DOME_BASE/script/git-auto-add-and-commit-changes.sh "$DOME_ARGS" ;;
+        clean )
+            $DOME_BASE/script/git-cleanup-my-branch.sh "$DOME_ARGS" ;;
         ls )
             $DOME_BASE/script/dome-list-sub-commands.sh "$DOME_ARGS" ;;
         rc|record )
