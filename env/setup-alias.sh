@@ -5,6 +5,9 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 alias cbc='dome cl'
 alias dt='dm date'
 
+# Git
+alias cg='cd $(git rev-parse --show-toplevel)'
+
 # Emacs
 alias e='emacs -nw'
 alias em='emacsclient --no-wait'
