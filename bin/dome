@@ -19,7 +19,7 @@ dome_main() {
             $DOME_BASE/script/git-clone-repository-to-local.sh "$DOME_ARGS" ;;
         cm )
             $DOME_BASE/script/git-auto-add-and-commit-changes.sh "$DOME_ARGS" ;;
-        clean )
+        rm )
             $DOME_BASE/script/git-cleanup-my-branch.sh "$DOME_ARGS" ;;
         gf )
             $DOME_BASE/script/golang-format-source-here.sh "$DOME_ARGS" ;;
