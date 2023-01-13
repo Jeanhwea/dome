@@ -65,6 +65,7 @@ DOME_BREW_PACKAGES=(
     "wget"
     "yarn"
     "you-get"
+    "yq"
     "z"
     "zsh-autosuggestions"
 )
