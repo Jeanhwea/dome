@@ -18,7 +18,18 @@ upgrade_kitex_package_version() {
     local file="$proj/symbol/meta_info.go"
     local curr=$1
     if [ -f $file ]; then
-        sed -i -E 's/(Version += +")v.*(")/\1'$curr'\2/' $file
+        sed -i -E 's/(Version += +")v.*(")/\1'$${curr/v/}'\2/' $file
+        dome_exec git add $file
+        dome_exec git commit -m "$curr"
+    fi
+}
+
+upgrade_maven_package_version() {
+    local proj=$(git rev-parse --show-toplevel)
+    local file="$proj/pom.xml"
+    local curr=$1
+    if [ -f $file ]; then
+        sed -i -E 's#<version>[0-9.]+</version>#<version>'$curr'</version>#' $file
         dome_exec git add $file
         dome_exec git commit -m "$curr"
     fi
@@ -59,6 +70,7 @@ dome_upgrade_semantic_version() {
     # 进行升级工作
     upgrade_dome_package_version $curr
     upgrade_kitex_package_version $curr
+    upgrade_maven_package_version $curr
 
     # 将版本同步到远端
     dome_exec git push
