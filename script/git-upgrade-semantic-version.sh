@@ -18,7 +18,7 @@ upgrade_kitex_package_version() {
     local file="$proj/symbol/meta_info.go"
     local curr=$1
     if [ -f $file ]; then
-        sed -i -E 's/(Version += +")v.*(")/\1'$${curr/v/}'\2/' $file
+        sed -i -E 's/(Version += +")v.*(")/\1'$curr'\2/' $file
         dome_exec git add $file
         dome_exec git commit -m "$curr"
     fi
@@ -29,7 +29,7 @@ upgrade_maven_package_version() {
     local file="$proj/pom.xml"
     local curr=$1
     if [ -f $file ]; then
-        sed -i -E 's#<version>[0-9.]+</version>#<version>'$curr'</version>#' $file
+        sed -i -E '1,10s#<version>[0-9.]+</version>#<version>'${curr/v/}'</version>#' $file
         dome_exec git add $file
         dome_exec git commit -m "$curr"
     fi
