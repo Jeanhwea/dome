@@ -35,6 +35,8 @@ dome_main() {
             $DOME_BASE/script/dwim-to-date-string.sh "$DOME_ARGS" ;;
         img )
             $DOME_BASE/script/save-image-from-clipboard.sh "$DOME_ARGS" ;;
+        uniq )
+            $DOME_BASE/script/tool-uniq-text-lines.sh "$DOME_ARGS" ;;
         * )
             dome_default_run "$DOME_ARGS" ;;
     esac
