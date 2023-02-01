@@ -11,7 +11,7 @@ dome_trace_extract() {
     local prefix="/tmp/trace-${conn_id}-"
     local outfile="${prefix}${shim}.txt"
     echo $outfile
-    tail -f /tmp/mysqld.trace | grep "^T@${conn_id}" | tee $outfile
+    tail -f /tmp/mysqld.trace | grep "^T@${conn_id}" | sed 's/^T[^:]*: //' | tee $outfile
 }
 
 dome_trace_extract $*
