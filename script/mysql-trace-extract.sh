@@ -9,9 +9,9 @@ dome_trace_extract() {
 
     local shim=$(date +"%Y%m%d-%H%M%S")
     local prefix="/tmp/trace-${conn_id}-"
-    local out="${prefix}${shim}.txt"
-    echo $out
-    tail -f /tmp/mysqld.trace | grep "^T@${conn_id}" | tee $out
+    local outfile="${prefix}${shim}.txt"
+    echo $outfile
+    tail -f /tmp/mysqld.trace | grep "^T@${conn_id}" | tee $outfile
 }
 
 dome_trace_extract $*
