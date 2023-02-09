@@ -3,16 +3,16 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 
 
 test_match_github() {
-    local url=$1
+    local url=${1//.git}
 
     # match git@github.com:Jeanhwea/dome.git
-    local pattern1='^git@github.com:([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)(.git){0,1}$'
+    local pattern1='^git@github.com:([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
     if [[ $url =~ $pattern1 ]]; then
         echo "github" ${BASH_REMATCH[1]} ${BASH_REMATCH[2]}
     fi
 
     # match https://github.com/go-vgo/robotgo.git
-    local pattern2='^(http|https)://github.com/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)(.git){0,1}$'
+    local pattern2='^(http|https)://github.com/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
     if [[ $url =~ $pattern2 ]]; then
         echo "github" ${BASH_REMATCH[2]} ${BASH_REMATCH[3]}
     fi
