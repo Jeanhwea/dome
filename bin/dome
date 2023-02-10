@@ -17,6 +17,8 @@ dome_main() {
             $DOME_BASE/script/git-upgrade-semantic-version.sh 1 ;;
         cl )
             $DOME_BASE/script/git-clone-repository-to-local.sh "$DOME_ARGS" ;;
+        nb )
+            $DOME_BASE/script/git-new-branch.sh "$DOME_ARGS" ;;
         cm )
             $DOME_BASE/script/git-auto-add-and-commit-changes.sh "$DOME_ARGS" ;;
         rm )

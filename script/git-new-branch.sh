@@ -11,4 +11,4 @@ dome_new_branch() {
     dome_exec git checkout -b $name$sub
 }
 
-dome_new_branch
+dome_new_branch $*
