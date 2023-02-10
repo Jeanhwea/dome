@@ -6,4 +6,4 @@ dome_new_branch_from_master() {
     dome_exec git checkout -b $name
 }
 
-dome_new_branch_from_master
+dome_new_branch
