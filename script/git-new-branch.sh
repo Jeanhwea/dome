@@ -6,6 +6,7 @@ dome_new_branch() {
     if [ $# -gt 0 ]; then
         local sub=$1
     fi
+    local sub=$(echo $sub | tr '[a-z]' '[A-Z]')
 
     local name=$(date +'%m%d')
     dome_exec git checkout -b "jh/$name$sub"
