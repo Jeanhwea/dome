@@ -8,7 +8,7 @@ dome_new_branch() {
     fi
 
     local name=$(date +'%m%d')
-    dome_exec git checkout -b $name$sub
+    dome_exec git checkout -b "jh/$name$sub"
 }
 
 dome_new_branch $*
