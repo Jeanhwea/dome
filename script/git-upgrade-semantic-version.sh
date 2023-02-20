@@ -55,8 +55,9 @@ dome_upgrade_semantic_version() {
     # 检测是否在 master 分支上
     local branch=$(git rev-parse --abbrev-ref HEAD)
     if [ X"$branch" != X"master" ]; then
-        loge "Only support on master branch, but got $branch, ABORT!"
-        exit 1
+        # loge "Only support on master branch, but got $branch, ABORT!"
+        # exit 1
+        logw "NOT on master branch, but in $branch, :)"
     fi
 
     # 检查 last 是否和 HEAD 相同, 避免重复打 tag
