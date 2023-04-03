@@ -4,7 +4,8 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 dome_pull_all_repository() {
     local base=${1:-$HOME/work}
     for repo in `find $base -type d -iname '.git' -maxdepth 3`; do
-        local dir=${repo//.git/}
+        # local dir=`dirname $repo`
+        local dir=${repo///.git/}
         dome_exec git -C $dir status
         dome_exec git -C $dir pull
     done
