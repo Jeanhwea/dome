@@ -59,7 +59,7 @@ clone_repository_to_local() {
 
     if [ X"$remote" != X"none" ]; then
         logi "Clone to $repodir/$reponame"
-        (mkdir -p $repodir && cd $repodir && git clone -o $remote $url)
+        (mkdir -p $repodir && cd $repodir && git clone --recurse-submodules -o $remote $url)
     else
         logw "Unknown URL: $url"
     fi
