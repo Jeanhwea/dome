@@ -22,6 +22,22 @@ test_match_github() {
 # test_match_github "https://github.com/go-vgo/robotgo"
 # test_match_github "http://github.com/go-vgo/test"
 
+test_match_gitlab() {
+    local url=${1//.git}
+
+    # match git@gitlab.com:Jeanhwea/dome.git
+    local pattern1='^git@gitlab.com:([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
+    if [[ $url =~ $pattern1 ]]; then
+        echo "gitlab" ${BASH_REMATCH[1]} ${BASH_REMATCH[2]}
+    fi
+
+    # match https://gitlab.com/go-vgo/robotgo.git
+    local pattern2='^(http|https)://gitlab.com/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
+    if [[ $url =~ $pattern2 ]]; then
+        echo "gitlab" ${BASH_REMATCH[2]} ${BASH_REMATCH[3]}
+    fi
+}
+
 test_match_codebase() {
     local file=$*
     dome_exec_local $HOME/bin/local/test-match-codebase.sh $file
@@ -45,6 +61,17 @@ clone_repository_to_local() {
             repodir="$DOME_CODE_DIR/jeanhwea"
         else
             repodir="$DOME_CODE_DIR/github/${fields[1]}"
+        fi
+    fi
+
+    local fields=($(test_match_gitlab $url))
+    if [ ${#fields[@]} -ge 3 ]; then
+        remote=${fields[0]}
+        reponame=${fields[2]}
+        if [ X"${fields[1]}" = X"Jeanhwea" ]; then
+            repodir="$DOME_CODE_DIR/jeanhwea"
+        else
+            repodir="$DOME_CODE_DIR/gitlab/${fields[1]}"
         fi
     fi
 
