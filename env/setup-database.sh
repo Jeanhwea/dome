@@ -1,6 +1,9 @@
 DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
+# dome
+export PATH="$DOME_BASE/bin:$PATH"
+
 # mysql
 export PATH="/opt/local/mysql/bin:$PATH"
 
