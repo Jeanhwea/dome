@@ -54,6 +54,22 @@ test_match_gitana() {
     fi
 }
 
+test_match_mtiisl() {
+    local url=${1//.git}
+
+    # match ssh://git@mtiisl.cn:2222/hujinghui/worknotes.git
+    local pattern1='^ssh://git@mtiisl.cn:2222/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
+    if [[ $url =~ $pattern1 ]]; then
+        echo "mtiisl" ${BASH_REMATCH[1]} ${BASH_REMATCH[2]}
+    fi
+
+    # match http://mtiisl.cn/gitlab/hujinghui/worknotes.git
+    local pattern2='^(http|https)://mtiisl.cn/gitlab/gitlab/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
+    if [[ $url =~ $pattern2 ]]; then
+        echo "mtiisl" ${BASH_REMATCH[2]} ${BASH_REMATCH[3]}
+    fi
+}
+
 test_match_codebase() {
     local file=$*
     dome_exec_local $HOME/bin/local/test-match-codebase.sh $file
@@ -99,6 +115,17 @@ clone_repository_to_local() {
             repodir="$DOME_CODE_DIR/jeanhwea"
         else
             repodir="$DOME_CODE_DIR/gitana/${fields[1]}"
+        fi
+    fi
+
+    local fields=($(test_match_mtiisl $url))
+    if [ ${#fields[@]} -ge 3 ]; then
+        remote=${fields[0]}
+        reponame=${fields[2]}
+        if [ X"${fields[1]}" = X"hujinghui" ]; then
+            repodir="$DOME_CODE_DIR/jeanhwea"
+        else
+            repodir="$DOME_CODE_DIR/mtiisl/${fields[1]}"
         fi
     fi
 
