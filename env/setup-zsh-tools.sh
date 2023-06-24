@@ -2,6 +2,7 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
 
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # zsh-autosuggestions.zsh
 DOME_ZA=/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 if [ -f $DOME_ZA ]; then
