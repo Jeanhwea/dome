@@ -13,7 +13,7 @@ upgrade_dome_package_version() {
     fi
 }
 
-upgrade_kitex_package_version() {
+upgrade_golang_package_version() {
     local proj=$(git rev-parse --show-toplevel)
     local file="$proj/symbol/meta_info.go"
     local curr=$1
@@ -70,7 +70,7 @@ dome_upgrade_semantic_version() {
 
     # 进行升级工作
     upgrade_dome_package_version $curr
-    upgrade_kitex_package_version $curr
+    upgrade_golang_package_version $curr
     upgrade_maven_package_version $curr
 
     # 将版本同步到远端
