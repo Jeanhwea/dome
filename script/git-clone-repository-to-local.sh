@@ -70,6 +70,25 @@ test_match_mtiisl() {
     fi
 }
 
+
+# https://gitee.com/opengauss/openGauss-server.git
+test_match_gitee() {
+    local url=${1//.git}
+
+    # match git@gitee.com:Jeanhwea/dome.git
+    local pattern1='^git@gitee.com:([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
+    if [[ $url =~ $pattern1 ]]; then
+        echo "gitee" ${BASH_REMATCH[1]} ${BASH_REMATCH[2]}
+    fi
+
+    # match https://gitee.com/go-vgo/robotgo.git
+    local pattern2='^(http|https)://gitee.com/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
+    if [[ $url =~ $pattern2 ]]; then
+        echo "gitee" ${BASH_REMATCH[2]} ${BASH_REMATCH[3]}
+    fi
+}
+
+
 test_match_codebase() {
     local file=$*
     dome_exec_local $HOME/bin/local/test-match-codebase.sh $file
@@ -93,6 +112,17 @@ clone_repository_to_local() {
             repodir="$DOME_CODE_DIR/jeanhwea"
         else
             repodir="$DOME_CODE_DIR/github/${fields[1]}"
+        fi
+    fi
+
+    local fields=($(test_match_gitee $url))
+    if [ ${#fields[@]} -ge 3 ]; then
+        remote=${fields[0]}
+        reponame=${fields[2]}
+        if [ X"${fields[1]}" = X"jeanhwea" ]; then
+            repodir="$DOME_CODE_DIR/jeanhwea"
+        else
+            repodir="$DOME_CODE_DIR/gitee/${fields[1]}"
         fi
     fi
 
