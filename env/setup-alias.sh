@@ -2,8 +2,9 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
 # Misc
-alias clc='dm git-clone-repository-to-local'
-alias clg='dm git-clone-github-repository'
+alias cl='dm git-clone-remote-repository'
+alias clu='dm git-clone-repository-to-local'
+alias clg='dm git-clone-remote-repository github'
 alias dt='dm date'
 
 # Git
