@@ -12,15 +12,37 @@ clone_my_remote_repository() {
     local repo=$2
     # echo $remote $repo
 
-    if [ X"$remote" == X"github" ]; then
-        dome_exec dm git-clone-repository-to-local git@github.com:Jeanhwea/${repo}.git
-    elif [ X"$remote" == X"mtiisl" ]; then
-        local url=ssh://git@mtiisl.cn:2222/hujinghui/${repo}.git
-        if [[ X"$repo" == *'/'* ]]; then
-            url=ssh://git@mtiisl.cn:2222/${repo}.git
-        fi
-        dome_exec dm git-clone-repository-to-local $url
+    case "$remote" in
+        github )
+            dome_exec dm git-clone-repository-to-local git@github.com:Jeanhwea/${repo}.git;;
+        mtiisl )
+            clone_my_mtiisl_repository $repo;;
+        avic )
+            clone_my_avic_repository $repo;;
+        * )
+            echo "remote [$remote] not found!"
+            exit 1;;
+    esac
+}
+
+clone_my_mtiisl_repository() {
+    local repo=$1
+
+    local url=ssh://git@mtiisl.cn:2222/hujinghui/${repo}.git
+    if [[ X"$repo" == *'/'* ]]; then
+        url=ssh://git@mtiisl.cn:2222/${repo}.git
     fi
+    dome_exec dm git-clone-repository-to-local $url
+}
+
+clone_my_avic_repository() {
+    local repo=$1
+
+    local url=ssh://git@192.168.0.202:2222/hujinghui/${repo}.git
+    if [[ X"$repo" == *'/'* ]]; then
+        url=ssh://git@192.168.0.202:2222/${repo}.git
+    fi
+    dome_exec dm git-clone-repository-to-local $url
 }
 
 clone_my_remote_repository $*
