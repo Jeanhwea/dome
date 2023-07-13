@@ -45,3 +45,5 @@ DOME_BREW_MOREUTILS_BIN=/usr/local/opt/coreutils/libexec/gnubin
 if [ -d $DOME_BREW_MOREUTILS_BIN ]; then
     export PATH=$DOME_BREW_MOREUTILS_BIN:$PATH
 fi
+
+export PATH="$PATH:/usr/libexec/git-core"
