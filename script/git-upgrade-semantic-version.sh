@@ -35,6 +35,17 @@ upgrade_maven_package_version() {
     fi
 }
 
+upgrade_node_package_version() {
+    local proj=$(git rev-parse --show-toplevel)
+    local file="$proj/package.json"
+    local curr=$1
+    if [ -f $file ]; then
+        sed -i -E '1,10s#"version": "[0-9.]+",#"version": "'${curr/v/}'",' $file
+        dome_exec git add $file
+        dome_exec git commit -m "$curr"
+    fi
+}
+
 dome_upgrade_semantic_version() {
     # 获取保留的版本数字的个数
     local count=3
@@ -72,6 +83,7 @@ dome_upgrade_semantic_version() {
     upgrade_dome_package_version $curr
     upgrade_golang_package_version $curr
     upgrade_maven_package_version $curr
+    upgrade_node_package_version $curr
 
     # 将版本同步到远端
     dome_exec git push
