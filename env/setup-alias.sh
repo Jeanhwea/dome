@@ -12,7 +12,7 @@ alias cg='cd $(git rev-parse --show-toplevel)'
 
 # Emacs
 alias e='emacs -nw'
-alias em='emacsclient --no-wait'
+alias em='emacsclient -n'
 
 # Makefile
 alias fmt='make format'
