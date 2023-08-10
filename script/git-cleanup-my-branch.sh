@@ -16,10 +16,12 @@ dome_delete_local_merged_branch() {
         return
     fi
 
-    local origin=$(dome_get_remote_name)
-    local branches=$(git branch --merged | egrep -v "(^\*|master|main|dev)" | grep 'jh/')
-    for branch in ${branches[@]}; do
-        dome_exec git branch -d $branch
+    for origin in $(dome_get_remote_name); do
+        logw "Delete local branch from $origin"
+        local branches=$(git branch --merged | egrep -v "(^\*|master|main|dev)" | grep 'jh/')
+        for branch in ${branches[@]}; do
+            dome_exec git branch -d $branch
+        done
     done
 }
 
@@ -30,7 +32,7 @@ dome_delete_remote_merged_branch() {
     fi
 
     for origin in $(dome_get_remote_name); do
-        logw "Handling $origin remote"
+        logw "Delete remote branch on $origin"
         local branches=$(git branch -r --merged | egrep -v "(^\*|master|main|dev)" | sed "s#${origin}/##;s# ##" | grep 'jh/')
         for branch in ${branches[@]}; do
             dome_exec git push $origin :$branch
