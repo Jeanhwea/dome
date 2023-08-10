@@ -8,6 +8,7 @@ dome_get_remote_name() {
 dome_sync_remote_branch() {
     local origin=$(dome_get_remote_name)
     for origin in $(dome_get_remote_name); do
+        logw "Fetch branch from $origin"
         git fetch $origin --prune
     done
 }
