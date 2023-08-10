@@ -2,7 +2,7 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
 dome_get_remote_name() {
-    git remote
+    git remote | head -n 1
 }
 
 dome_sync_remote_branch() {
