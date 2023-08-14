@@ -23,8 +23,10 @@ dome_main() {
             $DOME_BASE/script/git-auto-add-and-commit-changes.sh "$DOME_ARGS" ;;
         rm )
             $DOME_BASE/script/git-cleanup-my-branch.sh "$DOME_ARGS" ;;
-        pu|push )
+        gp|push )
             $DOME_BASE/script/git-push-all-remotes.sh "$DOME_ARGS" ;;
+        gl|pull )
+            $DOME_BASE/script/git-pull-all-repository.sh "$DOME_ARGS" ;;
         gf )
             $DOME_BASE/script/golang-format-source-here.sh "$DOME_ARGS" ;;
         ls )
