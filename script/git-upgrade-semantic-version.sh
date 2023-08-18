@@ -67,7 +67,6 @@ dome_upgrade_semantic_version() {
     # 获取升级的版本
     local last=$(vcs_last_version)
     local curr=$(vcs_bomup_version $last $count)
-    logi "upgrade $last -> $curr"
 
     # 检测当前 git 代码仓库是否干净
     if [ X"$(vcs_repository_is_clean)" = X"dirty" ]; then
@@ -89,6 +88,8 @@ dome_upgrade_semantic_version() {
         loge "Current HEAD has already tagged, ABORT!"
         exit 1
     fi
+
+    logi "upgrade $last -> $curr"
 
     # 进行升级工作
     upgrade_dome_package_version $curr
