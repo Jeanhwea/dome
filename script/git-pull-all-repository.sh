@@ -7,7 +7,7 @@ dome_pull_all_repositories() {
         # local dir=`dirname $repo`
         local dir=${repo///.git/}
         dome_exec git -C $dir status
-        dome_exec git -C $dir pull
+        dome_exec git -C $dir fetch
     done
 }
 
