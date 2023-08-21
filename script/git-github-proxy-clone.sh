@@ -3,7 +3,6 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
 
-
 test_match_github() {
     local url=${1//.git}
 
