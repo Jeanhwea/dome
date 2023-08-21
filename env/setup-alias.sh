@@ -5,6 +5,7 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 alias cl='dm git-clone-remote-repository'
 alias clu='dm git-clone-repository-to-local'
 alias clg='dm git-clone-remote-repository github'
+alias clp='dm git-github-proxy-clone'
 alias dt='dm date'
 
 # Git
