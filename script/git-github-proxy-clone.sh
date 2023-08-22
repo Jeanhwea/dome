@@ -32,10 +32,11 @@ clone_repository_with_proxy() {
         fi
     fi
 
-    local url="https://ghproxy.com/${url}"
+    local url_proxy="https://ghproxy.com/${url}"
     if [ X"$remote" != X"none" ]; then
         logi "Clone to $repodir/$reponame"
-        (mkdir -p $repodir && cd $repodir && git clone --recurse-submodules -o $remote $url)
+        (mkdir -p $repodir && cd $repodir && git clone --recurse-submodules -o $remote $url_proxy)
+        (cd $repodir && git remote add github $url)
     else
         if [ $# -ge 2 ]; then
             remote=$2
