@@ -40,7 +40,7 @@ upgrade_node_package_version() {
     local file="$proj/package.json"
     local curr=$1
     if [ -f $file ]; then
-        sed -i -E '1,10s#"version": "[0-9.]+"#"version": "'${curr/v/}'"#' $file
+        sed -i -E '1,10s#"version": "[0-9.]+"#^"version": "'${curr/v/}'"#' $file
         dome_exec git add $file
         dome_exec git commit -m "$curr"
     fi
@@ -51,7 +51,7 @@ upgrade_cargo_package_version() {
     local file="$proj/Cargo.toml"
     local curr=$1
     if [ -f $file ]; then
-        sed -i -E '1,5s#^version = "[0-9.]+"#version = "'${curr/v/}'"#' $file
+        sed -i -E '1,9s#^version = "[0-9.]+"#version = "'${curr/v/}'"#' $file
         dome_exec git add $file
         dome_exec git commit -m "$curr"
     fi
