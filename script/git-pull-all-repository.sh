@@ -6,6 +6,7 @@ dome_pull_all_repositories() {
     for repo in `find $base -maxdepth 4 -type d -iname '.git'`; do
         # local dir=`dirname $repo`
         local dir=${repo///.git/}
+        dome_exec git -C $dir remote -v
         dome_exec git -C $dir status
         dome_exec git -C $dir fetch
     done
