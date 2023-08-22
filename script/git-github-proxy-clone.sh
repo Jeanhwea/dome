@@ -36,7 +36,7 @@ clone_repository_with_proxy() {
     if [ X"$remote" != X"none" ]; then
         logi "Clone to $repodir/$reponame"
         (mkdir -p $repodir && cd $repodir && git clone --recurse-submodules -o $remote $url_proxy)
-        (cd $repodir && git remote add github $url)
+        (cd $repodir/$reponame && git remote add github $url)
     else
         if [ $# -ge 2 ]; then
             remote=$2
