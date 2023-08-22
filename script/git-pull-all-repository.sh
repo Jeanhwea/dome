@@ -3,7 +3,7 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 
 dome_pull_all_repositories() {
     local base=${1:-$DOME_CODE_DIR}
-    for repo in `find $base -type d -iname '.git' -maxdepth 4`; do
+    for repo in `find $base -maxdepth 4 -type d -iname '.git'`; do
         # local dir=`dirname $repo`
         local dir=${repo///.git/}
         dome_exec git -C $dir status
