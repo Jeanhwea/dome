@@ -1,8 +1,8 @@
 DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 
 VERSION="29.1"
-DOWNDIR="~/down"
-BUILDDIR="~/build"
+DOWNDIR="$HOME/down"
+BUILDDIR="$HOME/build"
 
 dome_download_emacs_source() {
     cd ${DOWNDIR}
@@ -12,9 +12,13 @@ dome_download_emacs_source() {
 dome_build_emacs_package() {
     [ -d ${BUILDDIR} ] || mkdir ${BUILDDIR}
     cd ${BUILDDIR}
-    tar xzvf ${DOWNDIR}/emacs-${VERSION}.tar.gz
 
+    echo "extract package: ${DOWNDIR}/emacs-${VERSION}.tar.gz"
+    rm ${BUILDDIR}/emacs-${VERSION}
+    tar xzf ${DOWNDIR}/emacs-${VERSION}.tar.gz
     cd ${BUILDDIR}/emacs-${VERSION}
+
+    echo "building..."
     ./configure
     make -j$(nproc)
 }
