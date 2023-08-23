@@ -2,6 +2,7 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
 DOME_GOLANG_PACKAGES=(
+    "github.com/antonmedv/fx"
     "github.com/cloudwego/hertz/cmd/hz"
     "github.com/cloudwego/thriftgo"
     "github.com/fatih/gomodifytags"
@@ -14,7 +15,6 @@ DOME_GOLANG_PACKAGES=(
     "golang.org/x/tools/cmd/goimports"
     "golang.org/x/tools/gopls"
     "gorm.io/gen/tools/gentool"
-    "github.com/antonmedv/fx"
 )
 
 dome_install_golang_package() {
