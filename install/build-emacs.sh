@@ -14,7 +14,7 @@ dome_build_emacs_package() {
     cd ${BUILDDIR}
 
     echo "extract package: ${DOWNDIR}/emacs-${VERSION}.tar.gz"
-    rm ${BUILDDIR}/emacs-${VERSION}
+    rm -rf ${BUILDDIR}/emacs-${VERSION}
     tar xzf ${DOWNDIR}/emacs-${VERSION}.tar.gz
     cd ${BUILDDIR}/emacs-${VERSION}
 
