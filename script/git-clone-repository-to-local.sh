@@ -16,6 +16,12 @@ test_match_github() {
     if [[ $url =~ $pattern2 ]]; then
         echo "github" ${BASH_REMATCH[2]} ${BASH_REMATCH[3]}
     fi
+
+    # match https://githubfast.com/go-vgo/robotgo.git
+    local pattern2='^(http|https)://githubfast.com/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
+    if [[ $url =~ $pattern2 ]]; then
+        echo "github" ${BASH_REMATCH[2]} ${BASH_REMATCH[3]}
+    fi
 }
 # test_match_github "git@github.com:Jeanhwea/dome.git"
 # test_match_github "https://github.com/go-vgo/robotgo.git"
