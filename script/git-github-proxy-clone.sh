@@ -15,13 +15,13 @@ test_match_github() {
 # test_match_github "git@github.com:Jeanhwea/dome.git"
 
 clone_repository_with_proxy() {
-    local url=$*
+    local url_origin=$*
 
     local remote="none"
     local repodir=
     local reponame=
 
-    local fields=($(test_match_github $url))
+    local fields=($(test_match_github $url_origin))
     if [ ${#fields[@]} -ge 3 ]; then
         remote=${fields[0]}
         reponame=${fields[2]}
@@ -32,17 +32,17 @@ clone_repository_with_proxy() {
         fi
     fi
 
-    local url_proxy="https://ghproxy.com/${url}"
     if [ X"$remote" != X"none" ]; then
+        local url_proxy="https://ghproxy.com/${url_origin}"
         logi "Clone to $repodir/$reponame"
         (mkdir -p $repodir && cd $repodir && git clone --recurse-submodules -o $remote $url_proxy)
-        (cd $repodir/$reponame && git remote add github $url)
+        (cd $repodir/$reponame && git remote add github $url_origin)
     else
         if [ $# -ge 2 ]; then
             remote=$2
-            (git clone --recurse-submodules -o $remote $url)
+            (git clone --recurse-submodules -o $remote $url_origin)
         fi
-        logw "Unknown URL: $url"
+        logw "Unknown URL: $url_origin"
     fi
 }
 
