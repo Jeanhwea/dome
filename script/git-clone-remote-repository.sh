@@ -4,6 +4,8 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 clone_my_remote_repository() {
     if [ $# -lt 2 ]; then
         echo 'usage: cl <remote> <repo>'
+        echo '          remote := github | mtiisl | avic'
+        echo '          repo is a repository name, rust_tutor or os/linux etc.'
         exit 1
         return
     fi
