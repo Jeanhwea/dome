@@ -7,6 +7,10 @@ alias clu='dm git-clone-repository-to-local'
 alias clg='dm git-clone-remote-repository github'
 alias clx='dm git-clone-remote-repository mtiisl'
 alias clp='dm git-github-proxy-clone'
+alias gh='dm git-add-remote-url github'
+alias gn='dm git-add-remote-url gitana'
+
+# parse date string
 alias dt='dm date'
 
 # Git
