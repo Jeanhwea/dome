@@ -78,6 +78,8 @@ DOME_CASK_PACKAGES=(
     "macpass"
     "mactex"
     "visual-studio-code"
+    "dbeaver-community"
+    "emacs"
 )
 
 dome_install_brew_packages() {
