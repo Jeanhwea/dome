@@ -2,6 +2,8 @@
 #+AUTHOR: Jinghui Hu
 #+EMAIL: hujinghui@buaa.edu.cn
 #+DATE: <2022-05-14 Sat 22:44:30>
+#+STARTUP: overview num indent
+#+OPTIONS: ^:nil
 
 * Introduction
 1. clone and add bin folder to your ~$PATH~
