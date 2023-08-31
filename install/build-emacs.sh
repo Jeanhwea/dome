@@ -19,14 +19,14 @@ dome_build_emacs_package() {
     cd ${BUILDDIR}/emacs-${VERSION}
 
     echo "building..."
-    ./autogen.sh    | tee stage01_autogen.log
-    ./configure     | tee stage02_configure.log
-    make -j$(nproc) | tee stage03_make.log
+    ./autogen.sh    |& tee stage01_autogen.log
+    ./configure     |& tee stage02_configure.log
+    make -j$(nproc) |& tee stage03_make.log
 }
 
 dome_install_emacs() {
     cd ${BUILDDIR}/emacs-${VERSION}
-    sudo make install | tee stage04_install.log
+    sudo make install |& tee stage04_install.log
 }
 
 
