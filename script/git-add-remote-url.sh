@@ -19,9 +19,9 @@ add_remote_url() {
             fi;;
         gitana )
             if [ X"$group" == "jeanhwea" ]; then
-                dome_exec git remote add github git@gitana.jeanhwea.io:hujinghui/${repo}.git
+                dome_exec git remote add gitana git@gitana.jeanhwea.io:hujinghui/${repo}.git
             else
-                dome_exec git remote add github git@gitana.jeanhwea.io:${group}/${repo}.git
+                dome_exec git remote add gitana git@gitana.jeanhwea.io:${group}/${repo}.git
             fi;;
         * )
             echo "remote [$remote] not found!"
