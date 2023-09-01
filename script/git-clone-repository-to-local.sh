@@ -147,7 +147,7 @@ clone_repository_to_local() {
     if [ ${#fields[@]} -ge 3 ]; then
         remote=${fields[0]}
         reponame=${fields[2]}
-        if [ X"${fields[1]}" = X"Jeanhwea" ]; then
+        if [ X"${fields[1]}" = X"hujinghui" ]; then
             repodir="$DOME_CODE_DIR/jeanhwea"
         else
             repodir="$DOME_CODE_DIR/gitana/${fields[1]}"
