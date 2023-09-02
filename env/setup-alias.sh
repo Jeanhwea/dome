@@ -26,6 +26,7 @@ alias gen='make generate'
 alias push='make push'
 alias m='make'
 alias t='make test'
+alias r='make run'
 
 # Tmux
 alias ta='dm tmux-create-or-attach-server'
