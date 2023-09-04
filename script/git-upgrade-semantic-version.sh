@@ -46,6 +46,18 @@ upgrade_node_package_version() {
     fi
 }
 
+upgrade_pip_package_version() {
+    local proj=$(git rev-parse --show-toplevel)
+    local name=$(basename $proj)
+    local file="$name/__init__.py"
+    local curr=$1
+    if [ -f $file ]; then
+        sed -i -E 's#__version__ = "[0-9.]+"#__version__ = "'${curr/v/}'"#' $file
+        dome_exec git add $file
+        dome_exec git commit -m "$curr"
+    fi
+}
+
 upgrade_cargo_package_version() {
     local proj=$(git rev-parse --show-toplevel)
     local file="$proj/Cargo.toml"
@@ -96,6 +108,7 @@ dome_upgrade_semantic_version() {
     upgrade_golang_package_version $curr
     upgrade_maven_package_version $curr
     upgrade_node_package_version $curr
+    upgrade_pip_package_version $curr
     upgrade_cargo_package_version $curr
 
     # 将版本同步到远端
