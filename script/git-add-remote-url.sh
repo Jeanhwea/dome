@@ -15,7 +15,7 @@ add_remote_url() {
             if [ X"$group" == X"jeanhwea" ]; then
                 dome_exec git remote add github git@github.com:Jeanhwea/${repo}.git
             else
-                dome_exec git remote add github https://githubfast.com/${group}/${repo}.git
+                dome_exec git remote add github https://github.com/${group}/${repo}.git
             fi;;
         gitana )
             if [ X"$group" == X"jeanhwea" ]; then
