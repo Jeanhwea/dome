@@ -1,12 +1,14 @@
 DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
-# Misc
+# Version Control
 alias pl='dm git-pull-curr-dir'
 alias cl='dm git-clone-remote-repository'
 alias clu='dm git-clone-repository-to-local'
 alias clg='dm git-clone-remote-repository github'
 alias clp='dm git-github-proxy-clone'
+
+# Helper
 alias dt='dm date'
 
 # Git
