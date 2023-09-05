@@ -26,7 +26,7 @@ dome_main() {
         gp|push )
             $DOME_BASE/script/git-push-all-remotes.sh "$DOME_ARGS" ;;
         gl|pull )
-            $DOME_BASE/script/git-pull-all-repository.sh "$DOME_ARGS" ;;
+            $DOME_BASE/script/git-fetch-all-repository.sh "$DOME_ARGS" ;;
         gf )
             $DOME_BASE/script/golang-format-source-here.sh "$DOME_ARGS" ;;
         ls )
