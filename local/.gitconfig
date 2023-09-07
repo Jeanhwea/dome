@@ -1,6 +1,6 @@
 [user]
   name = Jinghui Hu
-  email = hujinghui.jeffrey@bytedance.com
+  email = hujinghui@buaa.edu.cn
 
 [push]
   default = simple
@@ -21,14 +21,9 @@
   s = status -s
   b = branch
   cm = commit
-  bl = blame
   cl = clone
   co = checkout
   st = status
-
-  m = merge
-  mf = merge --ff
-  mn = merge --no-ff
 
   # undo
   amend = commit --amend
@@ -68,12 +63,6 @@
   # github and gitlab remote repository management
   remote-hub   = "!f() { git remote add github git@github.com:Jeanhwea/${PWD##*/}.git; }; f"
   clone-hub    = "!f() { git clone -o github git@github.com:Jeanhwea/$@.git; }; f"
-  remote-avic  = "!f() { git remote add avic ssh://git@192.168.0.202:2222/hujinghui/${PWD##*/}.git; }; f"
-  clone-avic   = "!f() { git clone -o avic ssh://git@192.168.0.202:2222/hujinghui/$@.git; }; f"
-  remote-minix = "!f() { git remote add minix ssh://git@minix.jeanhwea.io:2222/$@/${PWD##*/}.git; }; f"
-  clone-minix  = "!f() { git clone -o minix ssh://git@minix.jeanhwea.io:2222/hujinghui/$@.git; }; f"
-  remote-dev58 = "!f() { git remote add dev58 ssh://git@mtiisl.cn:2222/hujinghui/${PWD##*/}.git; }; f"
-  clone-dev58  = "!f() { git clone -o dev58 ssh://git@mtiisl.cn:2222/hujinghui/$@.git; }; f"
 
   # pull and push
   sync = "!f() { for R in `git remote`; do git pull --tags $R master && git push $R --all && git push $R --tags; done; }; f"
@@ -83,3 +72,6 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+
+[url "https://githubfast.com/"]
+        insteadOf = https://github.com/
