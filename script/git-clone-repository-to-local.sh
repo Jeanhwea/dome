@@ -176,6 +176,9 @@ clone_repository_to_local() {
 
     if [ X"$remote" != X"none" ]; then
         logi "Clone to $repodir/$reponame"
+        if [ X"$remote" == X"github" ]; then
+            local url=${url/githubfast.com/github.com}
+        fi
         (mkdir -p $repodir && cd $repodir && git clone --recurse-submodules -o $remote $url)
     else
         if [ $# -ge 2 ]; then
