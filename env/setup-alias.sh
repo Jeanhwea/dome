@@ -25,6 +25,7 @@ alias em='emacsclient -n'
 alias fmt='make format'
 alias gen='make generate'
 alias pub='make publish'
+alias cln='make clean'
 
 alias m='make'
 alias t='make test'
