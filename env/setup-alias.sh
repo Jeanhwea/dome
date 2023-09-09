@@ -24,7 +24,8 @@ alias em='emacsclient -n'
 # Makefile
 alias fmt='make format'
 alias gen='make generate'
-alias push='make push'
+alias pub='make publish'
+
 alias m='make'
 alias t='make test'
 alias r='make run'
