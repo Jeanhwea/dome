@@ -3,7 +3,7 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
 TODAY=$(date +'%Y-%m-%d %H:%M:%S')
-FILETAG=$(date +'%Y%m%d_%H%M%S')
+FILETAG=$(date +'_%Y%m%d_%H%M%S')
 
 doc_conv_to_pdf() {
     local full=$1
@@ -23,7 +23,7 @@ doc_conv_to_pdf() {
            -V documentclass=ctexart \
            -V geometry:margin='1in' \
            -o "${pdf}" \
-           $pdf
+           $base
 
     echo "Save to $out"
 }
