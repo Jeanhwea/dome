@@ -14,7 +14,6 @@ doc_conv_to_pdf() {
 
     cd $dir
 
-
     pandoc --pdf-engine=xelatex \
            --toc --number-sections \
            -V date="${TODAY}" \
