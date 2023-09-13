@@ -13,6 +13,7 @@ alias gn='dm git-add-remote-url gitana'
 
 # Helper
 alias dt='dm date'
+alias pdf='dm doc-conv-to-pdf'
 
 # Git
 alias cg='cd $(git rev-parse --show-toplevel)'
