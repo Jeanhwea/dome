@@ -10,7 +10,7 @@ doc_conv_to_pdf() {
     local dir=$(dirname $full)
     local base=$(basename $full)
     local pdf=${base//.*/${FILETAG}.pdf}
-    local out="$dir/$pdf"
+    local out="${PWD}/$pdf"
 
     cd $dir
 
@@ -22,7 +22,7 @@ doc_conv_to_pdf() {
            -V mainfont="SimSun" \
            -V documentclass=ctexart \
            -V geometry:margin='1in' \
-           -o "${pdf}" \
+           -o "$out" \
            $base
 
     echo "Save to $out"
