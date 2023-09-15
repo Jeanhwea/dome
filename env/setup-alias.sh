@@ -11,6 +11,9 @@ alias clp='dm git-github-proxy-clone'
 alias gh='dm git-add-remote-url github'
 alias gn='dm git-add-remote-url gitana'
 
+# docker
+dc='docker-compose'
+
 # Helper
 alias dt='dm date'
 alias pdf='dm doc-conv-to-pdf'
