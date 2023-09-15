@@ -7,6 +7,7 @@ DOME_GOLANG_PACKAGES=(
     "github.com/cloudwego/thriftgo"
     "github.com/fatih/gomodifytags"
     "github.com/go-delve/delve/cmd/dlv"
+    "github.com/google/yamlfmt/cmd/yamlfmt"
     "github.com/mdempsky/gocode"
     "github.com/minodisk/thriftfmt"
     "github.com/rogpeppe/godef"
