@@ -34,6 +34,7 @@ DOME_BREW_PACKAGES=(
     "grip"
     "htop"
     "httpie"
+    "jmeter"
     "jq"
     "lrzsz"
     "lua"
@@ -80,8 +81,6 @@ DOME_CASK_PACKAGES=(
     "visual-studio-code"
     "dbeaver-community"
     "emacs"
-    "jmeter"
-    "mat"
 )
 
 dome_install_brew_packages() {
