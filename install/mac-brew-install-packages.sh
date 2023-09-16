@@ -75,12 +75,13 @@ DOME_BREW_PACKAGES=(
 
 DOME_CASK_PACKAGES=(
     "alacritty"
+    "emacs"
+    "dbeaver-community"
     "foxmail"
     "macpass"
-    "mactex"
     "visual-studio-code"
-    "dbeaver-community"
-    "emacs"
+    "xquartz"
+    "mactex"
 )
 
 dome_install_brew_packages() {
