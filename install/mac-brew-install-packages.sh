@@ -80,6 +80,8 @@ DOME_CASK_PACKAGES=(
     "visual-studio-code"
     "dbeaver-community"
     "emacs"
+    "jmeter"
+    "mat"
 )
 
 dome_install_brew_packages() {
