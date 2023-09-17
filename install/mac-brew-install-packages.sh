@@ -83,6 +83,7 @@ DOME_CASK_PACKAGES=(
     "visual-studio-code"
     "xquartz"
     "mactex"
+    "wpsoffice-cn"
 )
 
 dome_install_brew_packages() {
