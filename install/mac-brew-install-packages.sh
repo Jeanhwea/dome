@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
@@ -34,6 +35,7 @@ DOME_BREW_PACKAGES=(
     "grip"
     "htop"
     "httpie"
+    "jmeter"
     "jq"
     "lrzsz"
     "lua"
@@ -74,12 +76,14 @@ DOME_BREW_PACKAGES=(
 
 DOME_CASK_PACKAGES=(
     "alacritty"
+    "emacs"
+    "dbeaver-community"
     "foxmail"
     "macpass"
-    "mactex"
     "visual-studio-code"
-    "dbeaver-community"
-    "emacs"
+    "xquartz"
+    "mactex"
+    "wpsoffice-cn"
 )
 
 dome_install_brew_packages() {
