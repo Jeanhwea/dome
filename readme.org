@@ -12,4 +12,4 @@
 #+END_SRC
 
 * Link
-1. [[https://quickref.me/][QuickRef]]
+1. [[https://cheatsheets.zip/][cheatsheets.zip]]
