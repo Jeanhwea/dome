@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
@@ -14,6 +15,7 @@ DOME_GOLANG_PACKAGES=(
     "github.com/swaggo/swag/cmd/swag"
     "golang.org/x/tools/cmd/godoc"
     "golang.org/x/tools/cmd/goimports"
+    "golang.org/x/tools/cmd/guru"
     "golang.org/x/tools/gopls"
     "gorm.io/gen/tools/gentool"
     "honnef.co/go/tools/cmd/staticcheck"
