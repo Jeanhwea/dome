@@ -5,7 +5,7 @@ dome_tmux_create_or_attach() {
     local short=$(hostname | cut -c -8)
     local short=${short:-Work}
     local session=${HOSTSHORT:=$short}
-    exec TERM=xterm-256color tmux new-session -A -s $session
+    TERM=xterm-256color tmux new-session -A -s $session
 }
 
 dome_tmux_create_or_attach $*
