@@ -2,6 +2,17 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
 
+upgrade_general_pacakge_version() {
+    local proj=$(git rev-parse --show-toplevel)
+    local file="$proj/version"
+    local curr=$1
+    if [ -f $file ]; then
+        echo $curr > $file
+        dome_exec git add $file
+        dome_exec git commit -m "$curr"
+    fi
+}
+
 upgrade_dome_package_version() {
     local proj=$(git rev-parse --show-toplevel)
     local file="$proj/common/symbol-meta.sh"
@@ -116,6 +127,7 @@ dome_upgrade_semantic_version() {
     logi "upgrade $last -> $curr"
 
     # 进行升级工作
+    upgrade_general_pacakge_version $curr
     upgrade_dome_package_version $curr
     upgrade_golang_package_version $curr
     upgrade_maven_package_version $curr
