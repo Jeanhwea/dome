@@ -84,6 +84,7 @@ DOME_CASK_PACKAGES=(
     "xquartz"
     "mactex"
     "wpsoffice-cn"
+    "redisinsight"
 )
 
 dome_install_brew_packages() {
