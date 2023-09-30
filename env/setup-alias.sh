@@ -22,7 +22,7 @@ alias pdf='dm doc-conv-to-pdf'
 alias cg='cd $(git rev-parse --show-toplevel)'
 
 # FrontEnd
-ys='[ -f node_modules ] && yarn || yarn start'
+ys='[ -d node_modules ] && yarn || yarn start'
 
 # Emacs
 alias e='emacs -nw'
