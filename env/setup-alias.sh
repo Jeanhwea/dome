@@ -21,6 +21,9 @@ alias pdf='dm doc-conv-to-pdf'
 # Git
 alias cg='cd $(git rev-parse --show-toplevel)'
 
+# FrontEnd
+ys='[ -f node_modules ] && yarn || yarn start'
+
 # Emacs
 alias e='emacs -nw'
 alias em='emacsclient -n'
