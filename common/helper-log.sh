@@ -22,6 +22,11 @@ dome_exec() {
     bash -c "$cmd"
 }
 
+dome_print() {
+    local msg=$*
+    $DOME_COLOR_ECHO ":) ${CLRGRN}$msg${CLRRST}"
+}
+
 dome_exec_local() {
     local file=$1
     if [ ! -f $file ]; then
