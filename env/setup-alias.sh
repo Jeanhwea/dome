@@ -1,5 +1,5 @@
-DOME_BASE=`cd $(dirname $0); cd ..; pwd`
-. $DOME_BASE/common/common.sh
+# DOME_BASE=`cd $(dirname $0); cd ..; pwd`
+# . $DOME_BASE/common/common.sh
 
 # Version Control
 alias pl='dm git-pull-curr-dir'
