@@ -4,7 +4,7 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 clone_my_remote_repository() {
     if [ $# -lt 2 ]; then
         echo 'usage: cl <remote> <repo>'
-        echo '          remote := github | mtiisl | avic'
+        echo '          remote := github | mtiisl | avic | gitana'
         echo '          repo is a repository name, rust_tutor or os/linux etc.'
         exit 1
         return
@@ -21,6 +21,8 @@ clone_my_remote_repository() {
             clone_my_mtiisl_repository $repo;;
         avic )
             clone_my_avic_repository $repo;;
+        gitana )
+            clone_my_gitana_repository $repo;;
         * )
             echo "remote [$remote] not found!"
             exit 1;;
@@ -43,6 +45,16 @@ clone_my_avic_repository() {
     local url=ssh://git@192.168.0.202:2222/hujinghui/${repo}.git
     if [[ X"$repo" == *'/'* ]]; then
         url=ssh://git@192.168.0.202:2222/${repo}.git
+    fi
+    dome_exec dm git-clone-repository-to-local $url
+}
+
+clone_my_gitana_repository() {
+    local repo=$1
+
+    local url=git@gitana.jeanhwea.io:hujinghui/${repo}.git
+    if [[ X"$repo" == *'/'* ]]; then
+        url=git@gitana.jeanhwea.io:${repo}.git
     fi
     dome_exec dm git-clone-repository-to-local $url
 }
