@@ -4,6 +4,7 @@
 # Version Control
 alias pl='dm git-pull-curr-dir'
 alias cl='dm git-clone-remote-repository'
+alias ra='dm git-add-remote-url'
 alias clu='dm git-clone-repository-to-local'
 alias clg='dm git-clone-remote-repository github'
 alias clx='dm git-clone-remote-repository mtiisl'
