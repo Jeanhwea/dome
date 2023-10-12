@@ -12,6 +12,15 @@ dome_push_all_remotes() {
             fi
         fi
 
+        if [ X"$remote" = X"origin" ]; then
+            local url=$(git remote get-url origin)
+            local pattern2='^(http|https)://'
+            if [[ $url =~ $pattern2 ]]; then
+                dome_print "SKIP $remote=$url"
+                continue
+            fi
+        fi
+
         dome_exec git push $remote --all
         dome_exec git push $remote --tags
     done
