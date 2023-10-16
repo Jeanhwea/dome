@@ -52,7 +52,7 @@ dome_default_run() {
     DOME_ARGS="$*"
     local script="$DOME_BASE/script/$DOME_COMMAND.sh"
     if [ -f "$script" ]; then
-        $script $DOME_ARGS
+        exec $script $DOME_ARGS
     else
         logw "fail to find $script, Dome $DOME_VERSION"
     fi
