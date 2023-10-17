@@ -36,8 +36,9 @@ alias pub='make publish'
 alias cln='make clean'
 
 alias m='make'
-alias t='make test'
-alias r='make run'
+alias mt='make test'
+alias mr='make run'
+alias mn='make -j$(nproc)'
 
 # Tmux
 alias ta='dm tmux-create-or-attach-server'
