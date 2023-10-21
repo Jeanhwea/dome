@@ -33,11 +33,13 @@ alias em='emacsclient -n'
 alias fmt='make format'
 alias gen='make generate'
 alias pub='make publish'
-alias cln='make clean'
 
 alias m='make'
-alias t='make test'
-alias r='make run'
+alias mc='make clean'
+alias md='make distclean'
+alias mt='make test'
+alias mr='make run'
+alias mn='make -j$(nproc)'
 
 # Tmux
 alias ta='dm tmux-create-or-attach-server'
