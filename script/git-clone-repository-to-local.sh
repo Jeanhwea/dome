@@ -48,13 +48,13 @@ test_match_gitana() {
     local url=${1//.git}
 
     # match git@gitana.jeanhwea.io:Jeanhwea/dome.git
-    local pattern1='^git@gitana.jeanhwea.io:([a-zA-Z0-9_-/]+)/([.a-zA-Z0-9_-]+)$'
+    local pattern1='^git@gitana.jeanhwea.io:([/a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
     if [[ $url =~ $pattern1 ]]; then
         echo "gitana" ${BASH_REMATCH[1]} ${BASH_REMATCH[2]}
     fi
 
     # match https://gitana.jeanhwea.io/go-vgo/robotgo.git
-    local pattern2='^(http|https)://gitana.jeanhwea.io/([a-zA-Z0-9_-/]+)/([.a-zA-Z0-9_-]+)$'
+    local pattern2='^(http|https)://gitana.jeanhwea.io/([/a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
     if [[ $url =~ $pattern2 ]]; then
         echo "gitana" ${BASH_REMATCH[2]} ${BASH_REMATCH[3]}
     fi
