@@ -4,6 +4,12 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 
 TODAY=$(date +'%Y-%m-%d %H:%M:%S')
 FILETAG=$(date +'_%Y%m%d_%H%M%S')
+FONT="SimSun"
+OS=$(uname)
+if [ X"$OS" == X"Darwin" ]; then
+    FONT="PingFang SC Regular"
+fi
+
 
 doc_conv_to_pdf() {
     local full=$1
@@ -18,7 +24,7 @@ doc_conv_to_pdf() {
            --toc --number-sections \
            -V date="${TODAY}" \
            -V author="Jeffrey" \
-           -V mainfont="SimSun" \
+           -V mainfont="$FONT" \
            -V documentclass=ctexart \
            -V geometry:margin='1in' \
            -o "$out" \
