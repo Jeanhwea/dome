@@ -89,6 +89,7 @@ DOME_CASK_PACKAGES=(
     "mactex"
     "wpsoffice-cn"
     "redisinsight"
+    "keycastr"
 )
 
 dome_install_brew_packages() {
