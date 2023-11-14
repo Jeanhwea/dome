@@ -34,12 +34,18 @@ alias fmt='make format'
 alias gen='make generate'
 alias pub='make publish'
 
+# alias for make
 alias m='make'
 alias mc='make clean'
 alias md='make distclean'
 alias mt='make test'
 alias mr='make run'
 alias mn='make -j$(nproc)'
+
+# aliax for emulator
+alias qm='make qemu'
+alias qx='make qemu-nox-gdb'
+alias bo='make bochs'
 
 # Tmux
 alias ta='dm tmux-create-or-attach-server'
