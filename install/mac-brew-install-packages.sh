@@ -73,6 +73,7 @@ DOME_BREW_PACKAGES=(
     "yq"
     "z"
     "zsh-autosuggestions"
+    "pdftk-java"
 )
 
 DOME_CASK_PACKAGES=(
