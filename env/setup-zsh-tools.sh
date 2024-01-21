@@ -24,8 +24,12 @@ if [ -d $GSED_PATH ]; then
 fi
 
 
-# change homebrew bottle domain
-# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+# homebrew https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
+# export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+# export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+# export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+# export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+# export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
 
 # taobao mirror for npm
 # export CHROMEDRIVER_CDNURL=http://npm.taobao.org/mirrors/chromedriver
