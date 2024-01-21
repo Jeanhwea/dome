@@ -1,0 +1,22 @@
+# https://github.com/alacritty/alacritty-theme
+#
+# We use Alacritty's default Linux config directory as our storage location here.
+# mkdir -p ~/.config/alacritty/themes
+# git clone https://githubfast.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+#
+import = [
+    "~/.config/alacritty/themes/themes/darcula.toml"
+]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 24
+
+[font.normal]
+family = "Monaco"
+
+[window]
+opacity = 0.85
+startup_mode = "Fullscreen"
