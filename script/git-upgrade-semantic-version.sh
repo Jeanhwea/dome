@@ -90,6 +90,14 @@ upgrade_cargo_package_version() {
         dome_exec git add $file
         dome_exec git commit -m "$curr"
     fi
+
+    local file="$proj/Cargo.lock"
+    local curr=$1
+    if [ -f $file ]; then
+        sed -i -E '1,9s#^version = "[0-9.]+"#version = "'${curr/v/}'"#' $file
+        dome_exec git add $file
+        dome_exec git commit -m "$curr"
+    fi
 }
 
 dome_upgrade_semantic_version() {
