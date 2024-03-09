@@ -34,6 +34,7 @@ alias fmt='make format'
 alias gen='make generate'
 alias pub='make publish'
 alias lin='make lint'
+alias brw='make browse'
 
 # alias for make
 alias m='make'
