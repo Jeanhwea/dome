@@ -33,6 +33,7 @@ alias em='emacsclient -n'
 alias fmt='make format'
 alias gen='make generate'
 alias pub='make publish'
+alias lin='make lint'
 
 # alias for make
 alias m='make'
