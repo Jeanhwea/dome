@@ -45,6 +45,9 @@ alias mt='make test'
 alias mr='make run'
 alias mn='make -j$(nproc)'
 
+# alias for cargo
+alias cr='RUST_LOG=info RUST_BACKTRACE=1 cargo run'
+
 # aliax for emulator
 alias qm='make qemu'
 alias qx='make qemu-nox-gdb'
