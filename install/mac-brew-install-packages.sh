@@ -91,6 +91,7 @@ DOME_CASK_PACKAGES=(
     "wpsoffice-cn"
     "redisinsight"
     "keycastr"
+    "pympress"
 )
 
 dome_install_brew_packages() {
