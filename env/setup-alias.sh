@@ -47,7 +47,7 @@ alias mn='make -j$(nproc)'
 
 # alias for cargo
 alias cr='RUST_LOG=info RUST_BACKTRACE=1 cargo run --quiet'
-alias ct='RUST_LOG=info RUST_BACKTRACE=1 cargo test --quiet'
+alias ct='RUST_LOG=info RUST_BACKTRACE=1 cargo test --quiet -- --show-output'
 alias cb='cargo build'
 
 # aliax for emulator
