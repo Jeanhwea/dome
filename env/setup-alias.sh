@@ -44,6 +44,7 @@ alias md='make distclean'
 alias mt='make test'
 alias mr='make run'
 alias mn='make -j$(nproc)'
+alias logf='make logf'
 
 # alias for cargo
 alias cr='RUST_LOG=info RUST_BACKTRACE=1 cargo run --quiet'
