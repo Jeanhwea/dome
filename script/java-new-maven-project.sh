@@ -15,7 +15,7 @@ dome_new_maven_project() {
               -DarchetypeVersion=1.4 \
               -DinteractiveMode=false
 
-    dome_exec "cd $app && sed -i 14,20s/>1.7</>1.8</g pom.xml"
+    dome_exec "cd $app && sed -i '14,20s/>1.7</>1.8</g' pom.xml"
 
     dome_exec "cd $app && echo target/* >> .gitignore"
     dome_exec "cd $app && echo idea/*   >> .gitignore"
