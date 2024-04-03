@@ -11,7 +11,7 @@ dome_new_springboot_project() {
               --name="$app" \
               --artifact-id="$app" \
               --group-id=io.github.jeanhwea \
-              --dependencies=web,jpa \
+              --dependencies=web \
               --build=maven \
               --language=java \
               --packaging=jar \
