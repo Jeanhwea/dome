@@ -15,7 +15,10 @@ dome_new_maven_project() {
               -DarchetypeVersion=1.4 \
               -DinteractiveMode=false
 
-    dome_exec "cd $app && echo target/* > .gitignore"
+    dome_exec "cd $app && echo target/* >> .gitignore"
+    dome_exec "cd $app && echo idea/*   >> .gitignore"
+    dome_exec "cd $app && echo *.iml    >> .gitignore"
+    dome_exec "cd $app && echo log/*    >> .gitignore"
 
     dome_exec "cd $app && git init && git add . && git commit -m init"
 }
