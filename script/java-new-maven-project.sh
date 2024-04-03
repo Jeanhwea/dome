@@ -14,6 +14,8 @@ dome_new_maven_project() {
               -Dversion=0.0.1 \
               -DarchetypeVersion=1.4 \
               -DinteractiveMode=false
+
+    dome_exec "cd $app && git init && git add . && git commit -m init"
 }
 
 dome_new_maven_project $*
