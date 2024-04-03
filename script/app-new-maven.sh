@@ -1,7 +1,7 @@
 DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
-dome_new_maven_project() {
+dome_app_new_maven() {
     local app="app01"
     if [ $# -gt 0 ]; then
         local app=$1
@@ -25,4 +25,4 @@ dome_new_maven_project() {
     dome_exec "cd $app && git init && git add . && git commit -m init"
 }
 
-dome_new_maven_project $*
+dome_app_new_maven $*
