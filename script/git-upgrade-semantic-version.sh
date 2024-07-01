@@ -9,7 +9,6 @@ upgrade_general_pacakge_version() {
     if [ -f $file ]; then
         echo $curr > $file
         dome_exec git add $file
-        dome_exec git commit -m "$curr"
     fi
 }
 
@@ -20,7 +19,6 @@ upgrade_dome_package_version() {
     if [ -f $file ]; then
         sed -i 's/DOME_VERSION=.*/DOME_VERSION="'$curr'"/' $file
         dome_exec git add $file
-        dome_exec git commit -m "$curr"
     fi
 }
 
@@ -31,7 +29,6 @@ upgrade_golang_package_version() {
     if [ -f $file ]; then
         sed -i -E 's/(Version += +")v.*(")/\1'$curr'\2/' $file
         dome_exec git add $file
-        dome_exec git commit -m "$curr"
     fi
 }
 
@@ -42,8 +39,6 @@ upgrade_maven_package_version() {
     if [ -f $file ]; then
         sed -i -E '1,10s#<version>[0-9.]+</version>#<version>'${curr/v/}'</version>#' $file
         dome_exec git add $file
-        upgrade_general_pacakge_version $curr
-        dome_exec git commit -m "$curr"
     fi
 }
 
@@ -55,7 +50,6 @@ upgrade_pip_package_version() {
     if [ -f $file ]; then
         sed -i -E '1,10s#__version__ = "[0-9.]+"#__version__ = "'${curr/v/}'"#' $file
         dome_exec git add $file
-        dome_exec git commit -m "$curr"
     fi
 }
 
@@ -66,7 +60,6 @@ upgrade_node_package_version() {
     if [ -f $file ]; then
         sed -i -E '1,10s#"version": "[0-9.]+"#"version": "'${curr/v/}'"#' $file
         dome_exec git add $file
-        dome_exec git commit -m "$curr"
     fi
 }
 
@@ -78,7 +71,6 @@ upgrade_pip_package_version() {
     if [ -f $file ]; then
         sed -i -E 's#__version__ = "[0-9.]+"#__version__ = "'${curr/v/}'"#' $file
         dome_exec git add $file
-        dome_exec git commit -m "$curr"
     fi
 }
 
@@ -97,7 +89,6 @@ upgrade_cargo_package_version() {
     if [ -f $file ]; then
         sed -i -E '1,9s#^version = "[0-9.]+"#version = "'${curr/v/}'"#' $file
         dome_exec git add $file
-        dome_exec git commit -m "$curr"
     fi
 }
 
@@ -135,7 +126,7 @@ dome_upgrade_semantic_version() {
 
     logi "upgrade $last -> $curr"
 
-    # 进行升级工作
+    # 进行升级工作，添加文件
     upgrade_general_pacakge_version $curr
     upgrade_dome_package_version $curr
     upgrade_golang_package_version $curr
@@ -144,6 +135,9 @@ dome_upgrade_semantic_version() {
     upgrade_node_package_version $curr
     upgrade_pip_package_version $curr
     upgrade_cargo_package_version $curr
+
+    # 提交文件
+    dome_exec git commit -m "$curr"
 
     # 将版本同步到远端
     dome_exec git push
