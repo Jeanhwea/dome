@@ -42,6 +42,7 @@ upgrade_maven_package_version() {
     if [ -f $file ]; then
         sed -i -E '1,10s#<version>[0-9.]+</version>#<version>'${curr/v/}'</version>#' $file
         dome_exec git add $file
+        upgrade_general_pacakge_version $curr
         dome_exec git commit -m "$curr"
     fi
 }
