@@ -77,12 +77,12 @@ upgrade_pip_package_version() {
 upgrade_cargo_package_version() {
     local proj=$(git rev-parse --show-toplevel)
 
-    local file="$proj/Cargo.lock"
-    local curr=$1
-    if [ -f $file ]; then
-        sed -i -E '1,9s#^version = "[0-9.]+"#version = "'${curr/v/}'"#' $file
-        dome_exec git add $file
-    fi
+    # local file="$proj/Cargo.lock"
+    # local curr=$1
+    # if [ -f $file ]; then
+    #     sed -i -E '1,9s#^version = "[0-9.]+"#version = "'${curr/v/}'"#' $file
+    #     dome_exec git add $file
+    # fi
 
     local file="$proj/Cargo.toml"
     local curr=$1
