@@ -3,6 +3,7 @@
 
 # Version Control
 alias pl='dm git-pull-curr-dir'
+alias pa='dm git-push-all-remotes'
 alias cl='dm git-clone-remote-repository'
 alias ra='dm git-add-remote-url'
 alias clu='dm git-clone-repository-to-local'
