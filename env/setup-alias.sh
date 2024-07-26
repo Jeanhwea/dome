@@ -56,11 +56,8 @@ alias fix='make fix'
 alias logf='make logf'
 
 # alias for cargo
-# alias cr='RUST_LOG=info RUST_BACKTRACE=1 cargo run --quiet'
-# alias ct='RUST_LOG=info RUST_BACKTRACE=1 cargo test --quiet -- --show-output'
-# alias cr='RUST_LOG=debug RUST_BACKTRACE=1 cargo run'
-alias cr='RUST_LOG=info RUST_BACKTRACE=1 cargo run'
-alias ct='RUST_LOG=info RUST_BACKTRACE=1 cargo test -- --show-output'
+alias cr='cargo run'
+alias ct='cargo test -- --show-output'
 alias cb='cargo build'
 
 # aliax for emulator
