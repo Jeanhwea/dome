@@ -56,7 +56,7 @@ alias fix='make fix'
 alias logf='make logf'
 
 # alias for cargo
-alias cr='cargo run'
+alias cr='cargo run --'
 alias ct='cargo test -- --show-output'
 alias cb='cargo build'
 
