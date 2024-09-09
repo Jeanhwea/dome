@@ -2,8 +2,8 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 . $DOME_BASE/common/common.sh
 
 add_my_remote_url() {
-    if [ $# -lt 2 ]; then
-        echo 'usage: ra <remote> <repo>'
+    if [ $# -lt 1 ]; then
+        echo 'usage: ra <remote> [<repo>]'
         echo '          remote := mtiisl | avic | gitana'
         echo '          repo is a repository name, rust_tutor or os/linux etc.'
         exit 1
@@ -11,8 +11,16 @@ add_my_remote_url() {
     fi
 
     local remote=$1
-    local repo=$2
-    # echo $remote $repo
+    local repo=""
+    if [ $# -gt 1 ]; then
+        local repo=$2
+    else
+        local dirs=$PWD
+        dir0=$(basename $dirs)
+        dirs=$(dirname $dirs)
+        dir1=$(basename $dirs)
+        repo=$dir1/$dir0
+    fi
 
     case "$remote" in
         mtiisl )
@@ -29,14 +37,6 @@ add_my_remote_url() {
 
 add_my_mtiisl_url() {
     local repo=$1
-
-    if [[ X"$repo" == X'' ]]; then
-        local dirs=$PWD
-        dir0=$(basename $dirs)
-        dirs=$(dirname $dirs)
-        dir1=$(basename $dirs)
-        repo=$dir1/$dir0
-    fi
 
     local url=ssh://git@mtiisl.cn:2222/hujinghui/${repo}.git
     if [[ X"$repo" == *'/'* ]]; then
