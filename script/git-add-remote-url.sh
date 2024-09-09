@@ -30,6 +30,14 @@ add_my_remote_url() {
 add_my_mtiisl_url() {
     local repo=$1
 
+    if [[ X"$repo" == X'' ]]; then
+        local dirs=$PWD
+        dir0=$(basename $dirs)
+        dirs=$(dirname $dirs)
+        dir1=$(basename $dirs)
+        repo=$dir1/$dir0
+    fi
+
     local url=ssh://git@mtiisl.cn:2222/hujinghui/${repo}.git
     if [[ X"$repo" == *'/'* ]]; then
         url=ssh://git@mtiisl.cn:2222/${repo}.git
