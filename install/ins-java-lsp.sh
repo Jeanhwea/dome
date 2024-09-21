@@ -7,6 +7,7 @@ TARBALL=jdt-language-server-1.39.0-202408291433.tar.gz
 JDTDIR=~/bin/jdt
 JDTBIN=~/bin/jdtls
 
+echo "wget -c $DOWNLINK -o $TARBALL"
 wget -c $DOWNLINK -o $TARBALL
 mv $TARBALL /tmp
 
