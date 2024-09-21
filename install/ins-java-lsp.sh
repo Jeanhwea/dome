@@ -7,14 +7,20 @@ TARBALL=jdt-language-server-1.39.0-202408291433.tar.gz
 JDTDIR=~/bin/jdt
 JDTBIN=~/bin/jdtls
 
-echo "curl $DOWNLINK --output $TARBALL"
-curl $DOWNLINK --output $TARBALL
+echo "download from $DOWNLINK"
+curl -sL --output $TARBALL "$DOWNLINK"
+ERRCODE=$?
+if [ "$ERRCODE" != "0" ]; then
+  echo "fail to download file, errno=$ERRCODE"
+  exit $ERRCODE
+fi
 mv $TARBALL /tmp
 
 mkdir -p $JDTDIR
-tar xzvf -C $JDTDIR /tmp/$TARBALL
+cd $JDTDIR
+tar xzvf /tmp/$TARBALL
 
-cat >> $JDTBIN <<\EOF
+cat > $JDTBIN <<\EOF
 #!/usr/bin/env sh
 export JAVA_HOME=$JAVA_HOME
 export PATH=$JAVA_HOME/bin:$PATH
