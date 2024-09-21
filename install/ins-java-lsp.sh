@@ -8,7 +8,7 @@ JDTDIR=~/bin/jdt
 JDTBIN=~/bin/jdtls
 
 echo "wget -c $DOWNLINK -o $TARBALL"
-wget -c $DOWNLINK -o $TARBALL
+wget -c --show-progress $DOWNLINK -o $TARBALL
 mv $TARBALL /tmp
 
 mkdir -p $JDTDIR
