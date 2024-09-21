@@ -7,6 +7,8 @@ TARBALL=jdt-language-server-1.39.0-202408291433.tar.gz
 JDTDIR=~/bin/jdt
 JDTBIN=~/bin/jdtls
 
+cd /tmp
+
 echo "download from $DOWNLINK"
 curl -sL --output $TARBALL "$DOWNLINK"
 ERRCODE=$?
@@ -14,7 +16,6 @@ if [ "$ERRCODE" != "0" ]; then
   echo "fail to download file, errno=$ERRCODE"
   exit $ERRCODE
 fi
-mv $TARBALL /tmp
 
 mkdir -p $JDTDIR
 cd $JDTDIR
