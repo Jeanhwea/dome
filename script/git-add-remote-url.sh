@@ -4,7 +4,7 @@ DOME_BASE=`cd $(dirname $0); cd ..; pwd`
 add_my_remote_url() {
     if [ $# -lt 1 ]; then
         echo 'usage: ra <remote> [<repo>]'
-        echo '          remote := mtiisl | avic | gitana'
+        echo '          remote := github | mtiisl | avic | gitana'
         echo '          repo is a repository name, rust_tutor or os/linux etc.'
         exit 1
         return
@@ -25,13 +25,15 @@ add_my_remote_url() {
         fi
     else
         local dirs=$PWD
-        dir0=$(basename $dirs)
+        local dir0=$(basename $dirs)
         dirs=$(dirname $dirs)
         dir1=$(basename $dirs)
         repo=$dir1/$dir0
     fi
 
     case "$remote" in
+        github )
+            add_my_github_url $dir0;;
         mtiisl )
             add_my_mtiisl_url $repo;;
         avic )
@@ -42,6 +44,12 @@ add_my_remote_url() {
             echo "remote [$remote] not found!"
             exit 1;;
     esac
+}
+
+add_my_github_url() {
+    local repo=$1
+    local url=git@github.com:Jeanhwea/${repo}.git
+    dome_exec git remote add github $url
 }
 
 add_my_mtiisl_url() {
