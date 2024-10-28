@@ -16,7 +16,7 @@ clone_my_remote_repository() {
 
     case "$remote" in
         github )
-            dome_exec dm git-clone-repository-to-local git@github.com:Jeanhwea/${repo}.git;;
+            clone_my_github_repository $repo;;
         mtiisl )
             clone_my_mtiisl_repository $repo;;
         avic )
@@ -27,6 +27,19 @@ clone_my_remote_repository() {
             echo "remote [$remote] not found!"
             exit 1;;
     esac
+}
+
+clone_my_github_repository() {
+    local repo=$1
+
+    local url=ssh://git@mtiisl.cn:2222/hujinghui/${repo}.git
+    if [[ X"$repo" == *'/'* ]]; then
+        url=https://github.com/${repo}.git
+    else
+        url=git@github.com:Jeanhwea/${repo}.git
+    fi
+
+    dome_exec dm git-clone-repository-to-local $url
 }
 
 clone_my_mtiisl_repository() {
