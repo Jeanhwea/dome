@@ -31,9 +31,17 @@ add_my_remote_url() {
         repo=$dir1/$dir0
     fi
 
+    if [ X"github" == X"$remote" ]; then
+        if [ X"" == X"$repo" ]; then
+            local dirs=$PWD
+            dir0=$(basename $dirs)
+            repo=$dir0
+        fi
+    fi
+
     case "$remote" in
         github )
-            add_my_github_url $dir0;;
+            add_my_github_url $repo;;
         mtiisl )
             add_my_mtiisl_url $repo;;
         avic )
