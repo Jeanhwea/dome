@@ -23,6 +23,11 @@ add_my_remote_url() {
             dir2=$(basename $dirs)
             repo=$dir2/$dir1/$dir0
         fi
+        if [ X"-1" == X"$repo" ]; then
+            local dirs=$PWD
+            dir0=$(basename $dirs)
+            repo=$dir0
+        fi
     else
         local dirs=$PWD
         local dir0=$(basename $dirs)
