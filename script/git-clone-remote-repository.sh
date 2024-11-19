@@ -55,9 +55,9 @@ clone_my_mtiisl_repository() {
 clone_my_avic_repository() {
     local repo=$1
 
-    local url=ssh://git@192.168.0.202:2222/hujinghui/${repo}.git
+    local url=ssh://git@192.168.0.110:2222/hujinghui/${repo}.git
     if [[ X"$repo" == *'/'* ]]; then
-        url=ssh://git@192.168.0.202:2222/${repo}.git
+        url=ssh://git@192.168.0.110:2222/${repo}.git
     fi
     dome_exec dm git-clone-repository-to-local $url
 }
