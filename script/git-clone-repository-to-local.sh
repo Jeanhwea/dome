@@ -18,8 +18,8 @@ test_match_github() {
     fi
 
     # match https://githubfast.com/go-vgo/robotgo.git
-    local pattern2='^(http|https)://githubfast.com/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
-    if [[ $url =~ $pattern2 ]]; then
+    local pattern3='^(http|https)://githubfast.com/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
+    if [[ $url =~ $pattern3 ]]; then
         echo "github" ${BASH_REMATCH[2]} ${BASH_REMATCH[3]}
     fi
 }
@@ -70,12 +70,27 @@ test_match_mtiisl() {
     fi
 
     # match http://mtiisl.cn/gitlab/hujinghui/worknotes.git
-    local pattern2='^(http|https)://mtiisl.cn/gitlab/gitlab/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
+    local pattern2='^(http|https)://mtiisl.cn/gitlab/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
     if [[ $url =~ $pattern2 ]]; then
         echo "mtiisl" ${BASH_REMATCH[2]} ${BASH_REMATCH[3]}
     fi
 }
 
+test_match_avic() {
+    local url=${1//.git}
+
+    # match ssh://git@192.168.0.110:2222/mtife/echarts.git
+    local pattern1='^ssh://git@192.168.0.110:2222/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
+    if [[ $url =~ $pattern1 ]]; then
+        echo "avic" ${BASH_REMATCH[1]} ${BASH_REMATCH[2]}
+    fi
+
+    # match http://192.168.0.110/gitlab/hujinghui/worknotes.git
+    local pattern2='^(http|https)://192.168.0.110/gitlab/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
+    if [[ $url =~ $pattern2 ]]; then
+        echo "avic" ${BASH_REMATCH[2]} ${BASH_REMATCH[3]}
+    fi
+}
 
 # https://gitee.com/opengauss/openGauss-server.git
 test_match_gitee() {
@@ -93,7 +108,6 @@ test_match_gitee() {
         echo "gitee" ${BASH_REMATCH[2]} ${BASH_REMATCH[3]}
     fi
 }
-
 
 test_match_codebase() {
     local file=$*
@@ -155,6 +169,17 @@ clone_repository_to_local() {
     fi
 
     local fields=($(test_match_mtiisl $url))
+    if [ ${#fields[@]} -ge 3 ]; then
+        remote=${fields[0]}
+        reponame=${fields[2]}
+        if [ X"${fields[1]}" = X"hujinghui" ]; then
+            repodir="$DOME_CODE_DIR/jeanhwea"
+        else
+            repodir="$DOME_CODE_DIR/mtiisl/${fields[1]}"
+        fi
+    fi
+
+    local fields=($(test_match_avic $url))
     if [ ${#fields[@]} -ge 3 ]; then
         remote=${fields[0]}
         reponame=${fields[2]}
