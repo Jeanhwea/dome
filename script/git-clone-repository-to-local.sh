@@ -80,13 +80,13 @@ test_match_avic() {
     local url=${1//.git}
 
     # match ssh://git@192.168.0.110:2222/mtife/echarts.git
-    local pattern1='^ssh://git@192.168.0.110:2222/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
+    local pattern1='^ssh://git@192.168.0.110:2222/(.+)/([.a-zA-Z0-9_-]+)$'
     if [[ $url =~ $pattern1 ]]; then
         echo "avic" ${BASH_REMATCH[1]} ${BASH_REMATCH[2]}
     fi
 
     # match http://192.168.0.110/gitlab/hujinghui/worknotes.git
-    local pattern2='^(http|https)://192.168.0.110/gitlab/([a-zA-Z0-9_-]+)/([.a-zA-Z0-9_-]+)$'
+    local pattern2='^(http|https)://192.168.0.110/gitlab/(.+)/([.a-zA-Z0-9_-]+)$'
     if [[ $url =~ $pattern2 ]]; then
         echo "avic" ${BASH_REMATCH[2]} ${BASH_REMATCH[3]}
     fi
