@@ -9,7 +9,7 @@
   rebase = false
 
 [core]
-  excludesfile = ~/.gitignore_global
+  excludesfile = ~/.ignore
 
 [diff]
   algorithm = patience
@@ -72,6 +72,3 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-
-[url "https://githubfast.com/"]
-  insteadOf = https://github.com/
