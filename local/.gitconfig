@@ -73,5 +73,5 @@
   process = git-lfs filter-process
   required = true
 
-[url "https://githubfast.com/"]
-  insteadOf = https://github.com/
+[include]
+  path = ~/.gitconfig-local
