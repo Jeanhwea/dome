@@ -31,3 +31,4 @@ projlocals.yml
 
 .idea/*
 .ftt/*
+pnpm-lock.yaml
