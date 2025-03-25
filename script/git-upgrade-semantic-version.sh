@@ -51,6 +51,13 @@ upgrade_pip_package_version() {
         sed -i -E '1,10s#__version__ = "[0-9.]+"#__version__ = "'${curr/v/}'"#' $file
         dome_exec git add $file
     fi
+
+    local file2="src/$${name}/__version__.py"
+    local curr=$1
+    if [ -f $file2 ]; then
+        sed -i -E '1,10s#__version__ = "[0-9.]+"#__version__ = "'${curr/v/}'"#' $file2
+        dome_exec git add $file2
+    fi
 }
 
 upgrade_node_package_version() {
