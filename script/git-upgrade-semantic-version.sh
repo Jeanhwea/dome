@@ -54,6 +54,7 @@ upgrade_pip_package_version() {
 
     local file2="src/$${name}/__version__.py"
     local curr=$1
+    echo $file2
     if [ -f $file2 ]; then
         sed -i -E '1,10s#__version__ = "[0-9.]+"#__version__ = "'${curr/v/}'"#' $file2
         dome_exec git add $file2
@@ -66,17 +67,6 @@ upgrade_node_package_version() {
     local curr=$1
     if [ -f $file ]; then
         sed -i -E '1,10s#"version": "[0-9.]+"#"version": "'${curr/v/}'"#' $file
-        dome_exec git add $file
-    fi
-}
-
-upgrade_pip_package_version() {
-    local proj=$(git rev-parse --show-toplevel)
-    local name=$(basename $proj)
-    local file="$name/__init__.py"
-    local curr=$1
-    if [ -f $file ]; then
-        sed -i -E 's#__version__ = "[0-9.]+"#__version__ = "'${curr/v/}'"#' $file
         dome_exec git add $file
     fi
 }
@@ -140,7 +130,6 @@ dome_upgrade_semantic_version() {
     upgrade_maven_package_version $curr
     upgrade_pip_package_version $curr
     upgrade_node_package_version $curr
-    upgrade_pip_package_version $curr
     upgrade_cargo_package_version $curr
 
     # 提交文件
