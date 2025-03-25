@@ -45,6 +45,7 @@ upgrade_maven_package_version() {
 upgrade_pip_package_version() {
     local proj=$(git rev-parse --show-toplevel)
     local name=$(dirname $proj)
+    local base=$(basename $proj)
     local file="${name}/__init__.py"
     local curr=$1
     if [ -f $file ]; then
@@ -52,7 +53,7 @@ upgrade_pip_package_version() {
         dome_exec git add $file
     fi
 
-    local file2="src/${name}/__version__.py"
+    local file2="${name}/src/${base}/__version__.py"
     local curr=$1
     echo $file2
     if [ -f $file2 ]; then
