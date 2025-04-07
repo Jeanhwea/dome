@@ -54,7 +54,7 @@ upgrade_pip_package_version() {
 
     local file2="${proj}/${name}/__version__.py"
     local curr=$1
-    echo $file2
+    # echo $file2
     if [ -f $file2 ]; then
         sed -i -E '1,10s#__version__ = "[0-9.]+"#__version__ = "'${curr/v/}'"#' $file2
         dome_exec git add $file2
@@ -62,7 +62,7 @@ upgrade_pip_package_version() {
 
     local file3="${proj}/src/${name}/__version__.py"
     local curr=$1
-    echo $file3
+    # echo $file3
     if [ -f $file3 ]; then
         sed -i -E '1,10s#__version__ = "[0-9.]+"#__version__ = "'${curr/v/}'"#' $file3
         dome_exec git add $file3
