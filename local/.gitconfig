@@ -10,6 +10,7 @@
 
 [core]
   excludesfile = ~/.ignore
+  pager = cat
 
 [diff]
   algorithm = patience
@@ -76,4 +77,4 @@
 [include]
   path = ~/.gitconfig_local
 [safe]
-	directory = *
+        directory = *
