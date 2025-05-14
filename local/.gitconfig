@@ -10,7 +10,6 @@
 
 [core]
   excludesfile = ~/.ignore
-  pager = cat
 
 [diff]
   algorithm = patience
