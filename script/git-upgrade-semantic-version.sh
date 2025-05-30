@@ -79,6 +79,16 @@ upgrade_node_package_version() {
     fi
 }
 
+upgrade_uv_project_version() {
+    local proj=$(git rev-parse --show-toplevel)
+    local file="$proj/pyproject.toml"
+    local curr=$1
+    if [ -f $file ]; then
+        sed -i -E '1,5s#version = "[0-9.]+"#version = "'${curr/v/}'"#' $file
+        dome_exec git add $file
+    fi
+}
+
 upgrade_cargo_package_version() {
     local proj=$(git rev-parse --show-toplevel)
 
@@ -138,6 +148,7 @@ dome_upgrade_semantic_version() {
     upgrade_maven_package_version $curr
     upgrade_pip_package_version $curr
     upgrade_node_package_version $curr
+    upgrade_uv_project_version $curr
     upgrade_cargo_package_version $curr
 
     # 提交文件
