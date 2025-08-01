@@ -13,9 +13,14 @@ dome_push_all_remotes() {
         fi
 
         if [ X"$remote" = X"gitee" ]; then
-            local url=$(git remote get-url github)
+            local url=$(git remote get-url gitee)
             local pattern2='^(http|https)://'
             if [[ $url =~ $pattern2 ]]; then
+                dome_print "SKIP $remote=$url"
+                continue
+            fi
+            local pattern3='^git.*:jeanhwea/.*'
+            if [[ ! $url =~ $pattern3 ]]; then
                 dome_print "SKIP $remote=$url"
                 continue
             fi
