@@ -42,6 +42,16 @@ upgrade_maven_package_version() {
     fi
 }
 
+upgrade_cmake_package_version() {
+    local proj=$(git rev-parse --show-toplevel)
+    local file="$proj/CMakeLists.txt"
+    local curr=$1
+    if [ -f $file ]; then
+        sed -i -E '1,10s#VERSION [0-9.]+#VERSION ${curr/v/}#' $file
+        dome_exec git add $file
+    fi
+}
+
 upgrade_pip_package_version() {
     local proj=$(git rev-parse --show-toplevel)
     local name=$(basename $proj)
@@ -146,6 +156,7 @@ dome_upgrade_semantic_version() {
     upgrade_dome_package_version $curr
     upgrade_golang_package_version $curr
     upgrade_maven_package_version $curr
+    upgrade_cmake_package_version $curr
     upgrade_pip_package_version $curr
     upgrade_node_package_version $curr
     upgrade_uv_project_version $curr
