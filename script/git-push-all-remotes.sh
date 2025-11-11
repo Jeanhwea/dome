@@ -19,11 +19,11 @@ dome_push_all_remotes() {
                 dome_print "SKIP $remote=$url"
                 continue
             fi
-            local pattern3='^git.*:jeanhwea/.*'
-            if [[ ! $url =~ $pattern3 ]]; then
-                dome_print "SKIP $remote=$url"
-                continue
-            fi
+            # local pattern3='^git.*:jeanhwea/.*'
+            # if [[ ! $url =~ $pattern3 ]]; then
+            #     dome_print "SKIP $remote=$url"
+            #     continue
+            # fi
         fi
 
         if [ X"$remote" = X"origin" ]; then
