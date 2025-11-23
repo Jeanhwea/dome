@@ -19,7 +19,7 @@ DOME_BREW_PACKAGES=(
     "zsh-autosuggestions"
     "ripgrep"
     "git"
-    "git-lfs"
+    # "git-lfs"
     "git-open"
     # "aria2"
     "autossh"
