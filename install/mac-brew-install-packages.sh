@@ -88,7 +88,7 @@ DOME_CASK_PACKAGES=(
     "obs"
     "shotcut"
     "vscode"
-    "mactex"
+    # "mactex"
     "wpsoffice-cn"
     # "redisinsight"
     "keycastr"
