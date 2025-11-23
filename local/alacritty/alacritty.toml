@@ -1,4 +1,3 @@
-
 [env]
 TERM = "xterm-256color"
 
@@ -20,5 +19,5 @@ startup_mode = "Fullscreen"
 # git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 #
 import = [
-    "~/.config/alacritty/themes/themes/darcula.toml"
+    "~/.config/alacritty/themes/themes/dracula.toml"
 ]
