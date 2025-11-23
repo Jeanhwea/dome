@@ -19,5 +19,5 @@ startup_mode = "Fullscreen"
 # git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 #
 import = [
-    "~/.config/alacritty/themes/themes/dracula.toml"
+    "~/.config/alacritty/themes/themes/dracula_plus.toml"
 ]
