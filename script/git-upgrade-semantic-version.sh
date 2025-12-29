@@ -10,6 +10,13 @@ upgrade_general_pacakge_version() {
         echo $curr > $file
         dome_exec git add $file
     fi
+
+    local file2="$proj/version.txt"
+    local curr=$1
+    if [ -f $file2 ]; then
+        echo $curr > $file2
+        dome_exec git add $file2
+    fi
 }
 
 upgrade_dome_package_version() {
