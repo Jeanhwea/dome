@@ -75,5 +75,6 @@
 
 [include]
   path = ~/.gitconfig_local
+
 [safe]
-        directory = *
+  directory = *
