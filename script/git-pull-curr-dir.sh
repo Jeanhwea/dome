@@ -9,6 +9,7 @@ dome_pull_all_repositories() {
         dome_exec git -C $dir remote -v
         dome_exec git -C $dir status
         dome_exec git -C $dir pull
+        dome_exec git -C $dir submodule update
     done
 }
 
