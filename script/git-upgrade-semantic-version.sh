@@ -54,7 +54,7 @@ upgrade_cmake_package_version() {
     local file="$proj/CMakeLists.txt"
     local curr=$1
     if [ -f $file ]; then
-        sed -i -E '1,10s# VERSION [0-9.]+# VERSION '${curr/v/}'#' $file
+        sed -i -E '1,30s# VERSION [0-9.]+# VERSION '${curr/v/}'#' $file
         dome_exec git add $file
     fi
 }
